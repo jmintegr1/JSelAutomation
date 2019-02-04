@@ -15,7 +15,7 @@ public class TestnNGFeatures {
 	}
 	
 
-//	@Test
+//	@Test                                      //This is TEST.. IT IS ONLY A TEST!!!
 //	public void SearchPageTest() {
 //		System.out.println("Login Test");
 //	}
