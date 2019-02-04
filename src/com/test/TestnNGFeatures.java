@@ -9,20 +9,16 @@ public class TestnNGFeatures {
 		System.out.println("Login Test");
 	}
 
-	@Test (dependsOnMethods="Login Test")     //CAN'T SEEM MAKE THIS METHOD WORK
+	@Test (dependsOnMethods="Login Test")     //CAN'T SEEM MAKE THIS METHOD WORK.. WILL MAKE PROGRESS TOMORROW!!!
 	public void HomePageTest(){
 		System.out.println("Home Page Test");
 	}
 	
 
-//	@Test                                      //This is TEST.. IT IS ONLY A TEST!!! 
+//	@Test                                    
 //	public void SearchPageTest() {
 //		System.out.println("Login Test");
-//	}                                              //Test for ECHO
-	
-	
-	
-	                                              //Changes from Remote... 
+//	}                                             
 	
 //	
 	
