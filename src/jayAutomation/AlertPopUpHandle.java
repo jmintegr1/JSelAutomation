@@ -47,7 +47,6 @@ public class AlertPopUpHandle {
 		
 		//alert.dismiss(); //To click on cancel button if there is a button dismissal, then use this method
 
-		
 	}
 
 }

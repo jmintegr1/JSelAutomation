@@ -16,6 +16,7 @@ public class HandleFileUploadPopUp {
 
 		driver.findElement(By.xpath("//input[@id='fileupload']")).sendKeys("/Users/jewellmehedi/Documents/Naveen's Automation Lab Notes.docx");
 		
+		//It will ONLY work if ** type="file" ** attribute/value is available 
 		//Do not click on choose file, then you are stuck cuz that will take away from browser to your computer and selenium is web based, not desktop based  
 		//Just spy by inspector and get the element key....
 

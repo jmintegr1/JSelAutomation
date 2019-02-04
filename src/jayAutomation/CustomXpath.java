@@ -21,20 +21,20 @@ public class CustomXpath {
 	
 		
 		//Both waits are Dynamic wait aka GLOBAL wait. Dynamic because it only waits for relevant loading time, and move onto action after. Where is STATIC WAIT like Thread.sleep(); hard coded and does not save time when page fully loaded
-		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS); //Wait 40 seconds for page to load fully then perform some actions, if page loaded faster rest of the time is ignored
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); //Wait 30 seconds to load all elements then perform actions based on the script of that certain element. Some elements may not be loaded within 40 seconds explicit wait
+		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS); //Wait 40 seconds for full page to load then perform some actions, if page loaded faster rest of the time is ignored
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); //Wait 30 seconds to load "all elements" then perform actions based on the script of that certain element. Some elements may not be loaded within 40 seconds explicit wait
 		
 		driver.get("https://www.ebay.com/"); 
 		
 		
 		
-		//driver.findElement(By.xpath("//input[@type=\'text\']")).sendKeys("Can't Hurt Me"); //Here I customized xpath with the first attribute after input
+		//driver.findElement(By.xpath("//input[@type=\'text\']")).sendKeys("Can't Hurt Me"); //I customized xpath with the first attribute after input
 		
-		//driver.findElement(By.xpath("//input[@id='gh-ac']")).sendKeys("Can't Hurt Me"); //Here I used the xpath from cropath
+		//driver.findElement(By.xpath("//input[@id='gh-ac']")).sendKeys("Can't Hurt Me"); //I used the xpath from cropath
 		
-		driver.findElement(By.xpath("//input[@placeholder='Search for anything']")).sendKeys("Can't Hurt Me"); //Using @placeholder properties' value
+		//driver.findElement(By.xpath("//input[@placeholder='Search for anything']")).sendKeys("Can't Hurt Me"); //Using @placeholder properties' value
 		
-		//driver.findElement(By.xpath("//input[(@class,'gh-tb ui-autocomplete-input']")).sendKeys("Can't Hurt Me");
+		driver.findElement(By.xpath("//input[(@class,'gh-tb ui-autocomplete-input']")).sendKeys("Pink Floyd");
 		
 		//driver.findElement(By.xpath("//input[contains(@class='gh-tb ui-autocomplete-input']")).sendKeys("Can't Hurt Me"); //Couldn't get class attribute & value to work in input[@class or input[contains(@class 
 
@@ -51,7 +51,7 @@ public class CustomXpath {
 		//id = test+123
 		//By.id("test_123")
 		
-		//driver.findElement(By.xpath("//input[contains@id,'test_')]")).sendKeys("Test");  
+		//driver.findElement(By.xpath("//input[contains@id,'test_')]")).sendKeys("Test");  //Leaving as Underscore let's selenium fill in the dynamic id
 
 		
 		//--starts-with
@@ -81,13 +81,11 @@ public class CustomXpath {
 		//2. Not reliable
 		//3. Can be changed at any time in the future
 		
-
 		
-		Thread.sleep(5000);
+		Thread.sleep(4000);
 		
 		
 		driver.quit();
-		
 		
 		
 	}

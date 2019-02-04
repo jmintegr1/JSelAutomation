@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.Select;
 
 public class HandleDropBox {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 
 		System.setProperty("webdriver.chrome.driver", "/Users/jewellmehedi/Downloads/chromedriver");
 		WebDriver driver = new ChromeDriver();
@@ -17,13 +17,15 @@ public class HandleDropBox {
 		Select select = new Select(driver.findElement(By.id("select-language")));
 		select.selectByVisibleText("Bengali");
 		
-		driver.findElement(By.xpath("     ")).click();
+		//driver.findElement(By.xpath("     ")).click();
 		
-		// How to handle check box? (Like in I agree to male female box to check)
+		// How to handle check box? (Like in I agree to permission asked or male female box to check off)
 	    //Ans: driver . find element BY xpath or what ever then .click... for check box .click will work 
 
 		
+		Thread.sleep(4000);
 		
+		driver.quit();
 		
 		
 	}
