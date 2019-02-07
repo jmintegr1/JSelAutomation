@@ -41,7 +41,7 @@ public class TestNgBasics {
 	*/
 	
 	
-	//Has 3 conditions: Pre, Test, and Post 
+	//A test is warped in 2 conditions: Pre-condition, Test, and Post-Condition
 	
 	
 	//Pre-conditions Annotation are annotations starting with @BEFORE

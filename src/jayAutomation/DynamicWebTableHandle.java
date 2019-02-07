@@ -25,6 +25,7 @@ public class DynamicWebTableHandle {
 		driver.findElement(By.name("username")).sendKeys("jmintegr1");
 		Thread.sleep(1000);  //SEEMS LIKE IT NEEDS THREAD.SLEEP TIME FOR LOGIN BUTTON TO CLICK & WORK
 		
+		
 		driver.findElement(By.name("password")).sendKeys("1zengogo");
 		Thread.sleep(2000); 
 		
@@ -35,8 +36,8 @@ public class DynamicWebTableHandle {
 		// 3 different xpaths: //input[@value='Login']   |   input[@type='submit'] Xpath Naveen used   |   //input[@class= 'btn btn-small']
 		
 		driver.switchTo().frame("mainpanel"); //IQ*** WHAT IS THE FRAME METHOD & HOW MANY VALUES IT CAN ACCEPT & WHAT ARE THEY?
-		Thread.sleep(2000);  //If there are dual frame then you have to distinctly focus on the frame where the button is
-		                    //Frame method is overloaded method, method name is the same with different arguments  
+		Thread.sleep(2000);  //If there are dual frame then you have to distinctly focus on the frame where the button is.
+		                    //Frame method is an overloaded method, method name is the same with different arguments.  
 		
 		// *IQ How will you handle frame?   Ans: Driver dot switch To dot frame
 		
