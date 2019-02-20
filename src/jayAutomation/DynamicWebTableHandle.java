@@ -20,7 +20,7 @@ public class DynamicWebTableHandle {
 		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		
-		driver.get("https://www.freecrm.com/index.html"); 
+		driver.get("https://classic.crmpro.com/index.html"); 
 		
 		driver.findElement(By.name("username")).sendKeys("jmintegr1");
 		Thread.sleep(1000);  //SEEMS LIKE IT NEEDS THREAD.SLEEP TIME FOR LOGIN BUTTON TO CLICK & WORK

@@ -24,24 +24,24 @@ public class GoogleTest {   //Proper convention to use the keyword "Test" in you
 	    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	    driver.get("http://www.google.com");
 	}
-	              //,group="......" helps to organize   also ***IQ: How will you define the grouping in TestNG? Ans: we use groups keyword, with S.. plural 
+	              //,group="......" helps to organize   also ***IQ: How will you define the grouping in TestNG? Ans: we use groups keyword, (with "S") plural 
 	@Test(priority=1,groups="Title")       //Test #1
-	public void googleTitleTest() {         //Although sequence is paired like: 1st BeforeMethod, 2nd Test, and 3rd AfterMethod but Selenium randomly picks the test case
+	public void googleTitleTest() {         //Although sequence is paired like: 1st BeforeMethod, 2nd all TCs, and 3rd AfterMethod but Selenium randomly picks 1 TC at time
 		String title = driver.getTitle();   //so it can pick #2 googleLogoTest before googleTitleTes. 
 		System.out.println(title);
-	}                                              //**IQ: How will prioritize your TC? Ans: Once I put (priority=1, 2, and 3) then Selenium picked TC chronologically
+	}                                              //**IQ: How will prioritize your TC, or deal with randomness? Ans: Once I put (priority=1, 2, and 3) then Selenium picked TC chronologically
 	
-	@Test(priority=2,groups="Logo")       //Test#2
+	@Test(priority=2,groups="Logo")              //Test#2
 	public void googleLogoTest() {
 		boolean b = driver.findElement(By.id("hplogo")).isDisplayed();  //Testing if Google logo is displayed or not?
 	}
 	
-	@Test(priority=3,groups="Link Test")       //Test #3
+	@Test(priority=3,groups="Link Test")     //Test #3
 	public void mailLinkTest() {
-		driver.findElement(By.linkText("GMail")).isDisplayed();   //Testing if Mail link is displayed or not?
+		driver.findElement(By.linkText("Gmails")).isDisplayed();   //Testing if Gmail link is displayed or not?
 	}
 	
-	@Test(priority=4,groups="Test")
+	@Test(priority=4,groups="Test")  //#4 Chronologically going down
 	public void test1() {
 		System.out.println("test1");
 	}
@@ -60,6 +60,6 @@ public class GoogleTest {   //Proper convention to use the keyword "Test" in you
 	@AfterMethod
 	public void tearDown() {
 		driver.quit();
+		
 	}
-
 }

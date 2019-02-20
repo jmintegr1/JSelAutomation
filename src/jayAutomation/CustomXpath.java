@@ -28,13 +28,13 @@ public class CustomXpath {
 		
 		
 		
-		//driver.findElement(By.xpath("//input[@type=\'text\']")).sendKeys("Can't Hurt Me"); //I customized xpath with the first attribute after input
+		driver.findElement(By.xpath("//input[@type=\'text\']")).sendKeys("Can't Hurt Me"); //I customized xpath with the first attribute after input
 		
 		//driver.findElement(By.xpath("//input[@id='gh-ac']")).sendKeys("Can't Hurt Me"); //I used the xpath from cropath
 		
 		//driver.findElement(By.xpath("//input[@placeholder='Search for anything']")).sendKeys("Can't Hurt Me"); //Using @placeholder properties' value
 		
-		driver.findElement(By.xpath("//input[(@class,'gh-tb ui-autocomplete-input']")).sendKeys("Pink Floyd");
+		//driver.findElement(By.xpath("//input[(@class,'gh-tb ui-autocomplete-input']")).sendKeys("Pink Floyd");
 		
 		//driver.findElement(By.xpath("//input[contains(@class='gh-tb ui-autocomplete-input']")).sendKeys("Can't Hurt Me"); //Couldn't get class attribute & value to work in input[@class or input[contains(@class 
 
@@ -77,7 +77,7 @@ public class CustomXpath {
 		
 		
 		//Problem with Absolute xpath:
-		//1. Performace issues, slow
+		//1. Performance issues, slow
 		//2. Not reliable
 		//3. Can be changed at any time in the future
 		

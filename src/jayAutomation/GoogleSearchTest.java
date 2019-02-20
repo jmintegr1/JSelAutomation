@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import com.sun.tools.javac.util.List;
+//import com.sun.tools.javac.util.List;
 
 public class GoogleSearchTest {
 
@@ -50,7 +50,6 @@ public class GoogleSearchTest {
 			
 		}
 		
-	
 		
 		Thread.sleep(3000);
 		

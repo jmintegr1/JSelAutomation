@@ -19,7 +19,7 @@ public class DynamicXpath {
 		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		
-		driver.get("https://www.freecrm.com/index.html"); 
+		driver.get("https://classic.crmpro.com/index.html"); 
 		
 		driver.findElement(By.name("username")).sendKeys("jmintegr1");
 		Thread.sleep(1000);  //SEEMS LIKE IT NEEDS THREAD.SLEEP TIME FOR LOGIN BUTTON TO CLICK & WORK
@@ -34,7 +34,7 @@ public class DynamicXpath {
 		// 3 different xpaths: //input[@value='Login']   |   input[@type='submit'] Xpath Naveen used   |   //input[@class= 'btn btn-small']
 		
 		driver.switchTo().frame("mainpanel"); //IQ*** WHAT IS THE FRAME METHOD & HOW MANY VALUES IT CAN ACCEPT & WHAT ARE THEY?
-		Thread.sleep(2000);  //If there are dual frames and we have to specifically focus on a frame where its button is to click for function execturtion..
+		Thread.sleep(2000);  //If there are dual frames and we have to specifically focus on a frame where its button is to click for function execution..
 		                    //Frame method is overloaded method, method name is the same with different arguments  
 		
 		// *IQ How will you handle frame?   Ans: Driver dot switch To dot frame

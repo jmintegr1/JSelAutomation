@@ -28,21 +28,21 @@ public class BrokenLinkTest {
 		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		
-		driver.get("https://www.freecrm.com/index.html"); 
+		driver.get("https://classic.crmpro.com/index.html"); 
 		
 		//driver.get("https://makemysushi.com/404?");  //Couldn't get it to run 
 		
-		driver.findElement(By.name("username")).sendKeys("jmintegr1");
+		driver.findElement(By.name("username")).sendKeys("naveenautomation");
 		Thread.sleep(1000);  //SEEMS LIKE IT NEEDS THREAD.SLEEP TIME FOR LOGIN BUTTON TO CLICK & WORK
 		
-		driver.findElement(By.name("password")).sendKeys("1zengogo");
+		driver.findElement(By.name("password")).sendKeys("test@123");
 		Thread.sleep(2000); 
 		
 		driver.findElement(By.xpath("//input[@type='submit']")).click(); 
 		Thread.sleep(2000);
 
 		
-		driver.switchTo().frame("mainpanel"); //IQ*** How will check the total number of links are available bye dot tag name? How will check that Links are not broken?
+		driver.switchTo().frame("mainpanel"); //IQ*** How will check the total number of links that are available bye dot tag name? How will check that Links are not broken?
 		Thread.sleep(2000);
 		
 		//links -- //a <http://www.google.com            //To check broken links for both: 1st We collect all the links then we go one by one and check the 

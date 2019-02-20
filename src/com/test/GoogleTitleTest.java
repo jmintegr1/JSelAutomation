@@ -25,7 +25,6 @@ WebDriver driver;
 	    driver.get("http://www.google.com");
 	}
 	
-	
 	              //,group="......" helps to organize   also ***IQ: How will you define the grouping in TestNG? Ans: we use groups keyword, with S.. plural 
 	@Test()      
 	public void googleTitleTest() {         //Although sequence is paired like: 1st BeforeMethod, 2nd Test, and 3rd AfterMethod but Selenium randomly picks the test case
@@ -35,12 +34,12 @@ WebDriver driver;
 	
 		                // Expected vs.title Actual 
 		Assert.assertEquals(title, "Google123", "title is not matched");  //Assert helps to not write if else for validation 
-                                               //If assertation fails then print this message
+                                               //If assertion fails then print this message
 	}
 	
 	@Test()       
 	public void googleLogoTest() {
-		boolean b = driver.findElement(By.id("hplogo")).isDisplayed();  //Testing if Google logo is displayed or not?
+		boolean b = driver.findElement(By.id("Googlelogo")).isDisplayed();  //Testing if Google logo is displayed or not?
 		//Assert.assertTrue(b); //Above boolean just state True or False so TC is passed either way. So give command by Assertation we want true or fail
 		Assert.assertEquals(b, true);
 	}    //Two ways to Asset, pick one

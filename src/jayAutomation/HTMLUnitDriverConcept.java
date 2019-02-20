@@ -43,7 +43,7 @@ System.setProperty("webdriver.chrome.driver", "/Users/jewellmehedi/Downloads/chr
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS); //Wait 30 seconds to load ALL ELEMENTS then perform actions based on the script of that certain element. Some elements may not be loaded within 40 seconds explicit wait
 		
 		
-		driver.get("http://www.freecrm.com");
+		driver.get("https://classic.crmpro.com"); 
 		
 		System.out.println("Before login, titile is:====" + driver.getTitle());
 		

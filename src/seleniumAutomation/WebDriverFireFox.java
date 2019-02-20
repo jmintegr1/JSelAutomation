@@ -9,7 +9,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class WebDriverFireFox {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		
 		//WebDriver driver;
 		System.setProperty("webdriver.gecko.driver", "/Users/jewellmehedi/Downloads/geckodriver");
@@ -38,9 +38,11 @@ public class WebDriverFireFox {
 		
 		System.out.println(driver.getCurrentUrl());
 		
-		//System.out.println(driver.getPageSource()); //To get the entire front end page source code of HTML & Java Script..
+		System.out.println(driver.getPageSource()); //To get the entire front end page source code of HTML & Java Script..
 		
-		//driver.quit();   //Quit the browser 
+		Thread.sleep(3000);
+		
+		driver.quit();   //Quit the browser 
 		
 	}
 

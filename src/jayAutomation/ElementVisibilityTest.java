@@ -25,7 +25,7 @@ System.setProperty("webdriver.chrome.driver", "/Users/jewellmehedi/Downloads/chr
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); //Wait 30 seconds to load ALL ELEMENTS then perform actions based on the script of that certain element. Some elements may not be loaded within 40 seconds explicit wait
 		
 		
-		driver.get("https://www.freecrm.com/register/"); 
+		driver.get("https://classic.crmpro.com/index.html"); 
 		
 		//1. isDisplayed() method: applicable for al the elements
 		boolean b1 = driver.findElement(By.id("submitButton")).isDisplayed(); //For submit button
