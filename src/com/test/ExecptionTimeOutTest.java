@@ -1,6 +1,6 @@
 package com.test;
 
-import org.testng.annotations.Test;         //THIS IS A TEST CODE FROM GITHUB
+import org.testng.annotations.Test;         //THIS IS A TEST of CHANGE FROM GITHUB THEN PULLING IN ECLIPSE
 
 public class ExecptionTimeOutTest {
 	
