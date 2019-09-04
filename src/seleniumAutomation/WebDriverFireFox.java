@@ -13,34 +13,33 @@ public class WebDriverFireFox {
 		
 		//WebDriver driver;
 		System.setProperty("webdriver.gecko.driver", "/Users/jewellmehedi/Downloads/geckodriver");
-		
-		WebDriver driver = new FirefoxDriver();
-		
+		WebDriver driver = new FirefoxDriver(); //Instantiate WebDriver as the interface gets implemented by FirefoxDriver(); class
+
 		//driver.get(baseURL);	
-		driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS); //Now with driver instance variable call all the methods
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);    //This part is Automation 
 		driver.manage().window().fullscreen();
 		driver.manage().deleteAllCookies();
 	
-		driver.get("https://www.google.com");
+		driver.get("https://john-sonmez.mykajabi.com/");
 	
-		String title = driver.getTitle();
+		String title = driver.getTitle();  //To get title so we can print in PLS	
 	
-		System.out.println(title);
+		System.out.println(title); //Now we can use title reference variable to call it & print it in PLS
 		
 		//Validation point = Actual thing VS. Expected thing, this is basically testing itself 
 		if(title.equals("Google")) {
 			System.out.println("correct title");      //Including validation point = Automation Testing 
 		}
-		else {   //This is complete TC = Test Case is combination of different how to steps to reproduce expected results vs. actual result                                       
+		else {   //This is a complete TC = Test Case is combination of different how to steps to reproduce expected results vs. actual result                                       
 			System.out.println("in-corret title");
 		}
 		
 		System.out.println(driver.getCurrentUrl());
 		
-		System.out.println(driver.getPageSource()); //To get the entire front end page source code of HTML & Java Script..
+		System.out.println(driver.getPageSource()); //getPageSource to get the entire front end page source code of HTML & Java Script..
 		
-		Thread.sleep(3000);
+		Thread.sleep(3000);  //
 		
 		driver.quit();   //Quit the browser 
 		

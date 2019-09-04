@@ -1,11 +1,13 @@
 package jayAutomation;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.safari.SafariDriver;
 
 
 
@@ -15,10 +17,10 @@ public class FindElementsConcept {
 		
 		public static void main(String[] args) throws InterruptedException {
 
-			System.setProperty("webdriver.chrome.driver", "/Users/jewellmehedi/Downloads/chromedriver");
+//			System.setProperty("webdriver.chrome.driver", "/Users/jewellmehedi/Downloads/chromedriver");
+//			WebDriver driver = new ChromeDriver();
 			
-			WebDriver driver = new ChromeDriver();
-			
+			WebDriver driver = new SafariDriver(); // If I want to run it on Safari, seems like now I don't need to download the safari driver as long as I activate it from preferences and Developer menu for automation  
 			
 			driver.manage().window().maximize();   
 			driver.manage().deleteAllCookies();
@@ -28,52 +30,64 @@ public class FindElementsConcept {
 			driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS); //Wait 40 seconds for page to load fully then perform some actions, if page loaded faster rest of the time is ignored
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); //Wait 30 seconds to load all elements then perform actions based on the script of that certain element. Some elements may not be loaded within 40 seconds explicit wait
 			
-			driver.get("https://www.facebook.com/"); 
+			driver.get("https://www.ebay.com/"); 
+		
+			
+			//All the links are represented by < a > html TAG so use tagName(): 
+//			List<WebElement> courageList = driver.findElements(By.tagName("a")); //Use "a" because <a> tag stands for all the links  
+//			                                //In .findElements with By.tagName() object we don't have to use .click or .sendKeys
+//			
+//			//Size of LinkedList:
+//			System.out.println(courageList.size()); //Just link size total 
+			
+//			1. ****IQ: How to get the TOTAL COUNT of all the LINKS, INPUT, or BUTTON FIELDS that are on a page?
+//			
+//			Ans: I will use driver.findElements(By.tagName("A") and pass "A" in the parameter since it is tag we are looking for then 
+//			initialize it with List interface <WebElement> in generic and use its instance variable to call the size() in PLS.
+//			
 			
 			
-			//1. **IQ: How to get the total count of all the links on the page?
-			//2. **IQ: How to get the text of each link on the page?
-			
-			//All the links are represented by <a> html tag: 
-			
-			
-			//Naveen had this
-			//import up top but this import only works here next to List
-			java.util.List<WebElement> linkList = driver.findElements(By.tagName("a"));  
-			                        //Object name linkList or it can be anything 
-			
-			java.util.List<WebElement> linkList2 = driver.findElements(By.tagName("input"));  //****How to use By.tagName & why?
-			
-			java.util.List<WebElement> anyName = driver.findElements(By.tagName("button"));  
+//			//How many input are there?
+//			
+//			List <WebElement> linkList2 = driver.findElements(By.tagName("input"));  //****How to use By.tagName & why?  
+//			                         //When use .findElements to initialize than on left hand side of = use List <WebElement> to store links or the tag
+//			
+//			System.out.println(linkList2.size());
 
 			
-			//***IQ: How many buttons are there, or how many a or input?
 			
 			
-			//Size of linkList:
-			System.out.println(linkList.size());
+			//How many buttons are there?
+
+//			List <WebElement> btn = driver.findElements(By.tagName("button"));  
+//
+//			System.out.println(btn.size());
+
 			
-			System.out.println(linkList2.size());
 			
-			System.out.println(anyName.size());
+			 
+			//2. **IQ: How to get the TEXT of each LINK on the page?
 			
-			//To print all text we use for loop
-			for(int i=0; i<linkList.size(); i++) {
-					String linkText = linkList.get(i).getText();
-					System.out.println(linkText);
+			//Remember how to iterate Array or ArrayList? How to print all the vales of an Array ArrayList? 
+			
+			// Ans: To print all values & text we use for loop:
+			 
+			//Step A: Instantiate List Interface with tagName() method and pass in "A"
+			List <WebElement> AllText = driver.findElements(By.tagName("a")); 
+			             
+			//Step B: Get Size
+			System.out.println(AllText.size());  //.size(); Gives the count of all the links 
+			 
+			//Step C: for loop 
+			for(int i=0; i<AllText.size(); i++) {            //.get(); method to get 1st link to start until loop is over
+					String name = AllText.get(i).getText(); //Now we store the text inside an instantiated object: name
+					System.out.println(name);           //.getText() method is to get the TEXT
 			}
 			
-			
-			for(int i=0; i<linkList2.size(); i++) {
-				String anyObject = linkList2.get(i).getText();
-				System.out.println(anyObject);
-			}
-			
-				
 			Thread.sleep(4000);
 			
 			driver.quit();
-	
+			
 	}
 
 }

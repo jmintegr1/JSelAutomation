@@ -12,14 +12,16 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.safari.SafariDriver;
 
 public class BrokenLinkTest {
 
 	public static void main(String[] args) throws InterruptedException, MalformedURLException, IOException {
 		
-
-		System.setProperty("webdriver.chrome.driver", "/Users/jewellmehedi/Downloads/chromedriver");
-		WebDriver driver = new ChromeDriver();
+//		System.setProperty("webdriver.chrome.driver", "/Users/jewellmehedi/Downloads/chromedriver");
+//		WebDriver driver = new ChromeDriver();
+		
+		WebDriver driver = new SafariDriver();
 		
 		driver.manage().window().maximize(); 
 		driver.manage().deleteAllCookies();
@@ -30,7 +32,7 @@ public class BrokenLinkTest {
 		
 		driver.get("https://classic.crmpro.com/index.html"); 
 		
-		//driver.get("https://makemysushi.com/404?");  //Couldn't get it to run 
+		//driver.get("https://makemysushi.com/404?"); I think this page was designed to give Not Found status code
 		
 		driver.findElement(By.name("username")).sendKeys("naveenautomation");
 		Thread.sleep(1000);  //SEEMS LIKE IT NEEDS THREAD.SLEEP TIME FOR LOGIN BUTTON TO CLICK & WORK
@@ -42,39 +44,35 @@ public class BrokenLinkTest {
 		Thread.sleep(2000);
 
 		
-		driver.switchTo().frame("mainpanel"); //IQ*** How will check the total number of links that are available bye dot tag name? How will check that Links are not broken?
+		driver.switchTo().frame("mainpanel");  //How will you check that Links are not broken?
 		Thread.sleep(2000);
 		
-		//links -- //a <http://www.google.com            //To check broken links for both: 1st We collect all the links then we go one by one and check the 
-		//images -- //img href <http://www.test.com>     //;correct links with img href or not.
+		//Links: are available in the form of <a Tag followed by href = <a heref | I want to go to this url: http://www.google.com     //To check broken links for both: 1st We collect all the links then we go one by one and check the 
+		//Images: are associated with <img tag |  href <http://www.test.com>     //;correct links with img & href or not, so we have to check for links and images. To do this manually it is extremely time consuming, so we automate this. 
 		
-		//1. Get list of all links & images:   500 total links
-		List<WebElement> linkList = driver.findElements(By.tagName("a"));
-		linkList.addAll(driver.findElements(By.tagName("img")));
+		//1. Get list of all the links & images, by WebElement extending List interface: say it has 500 total links
+		
+		//IQ*** How will you check the total number of links that are available by dot tagName()?
+		List<WebElement> linkList = driver.findElements(By.tagName("a"));  //Will get the total <a tags (links) in the list object
+		linkList.addAll(driver.findElements(By.tagName("img")));          //Will get the total img (images)  
 		
 		System.out.println("Size of full lninks & images--->"+ linkList.size());
 
 		
-		List<WebElement> activeLinks = new ArrayList<WebElement>();  //450 cuz This object filters out 50 links that does not have href properties
+		List<WebElement> activeLinks = new ArrayList<WebElement>();  //Now say 450 cuz, this object filters out 50 links that does not have href properties
 		
-		//2. Iterate linkList:   exclude all the links/images - doesn't have any href attributes 
+		//2. Iterate reference variable (linkList): to exclude all the links/images that doesn't have any href attributes 
 		for(int i=0; i<linkList.size(); i++) {
 			System.out.println(linkList.get(i).getAttribute("href"));
-			if(linkList.get(i).getAttribute("href") != null && (! linkList.get(i).getAttribute("href").contains("javascript"))){
+			if(linkList.get(i).getAttribute("href") != null && (! linkList.get(i).getAttribute("href").contains("javascript"))){ //This line and ! means NOT so it if it contains Javascript, even with href then exclude it
 				activeLinks.add(activeLinks.get(i));
 			}
 		}
 		
-		
 		//Get the size of active links list: 
-		System.out.println("Size of active lninks & images--->"+ activeLinks.size());  //Only getting full links & images, NOT active links & images 
-		
-		//3. Check the href url, with httpconnection api:
-		
-		//Response code:  200 --OK
-		//404 -- Not Found
-		//500 -- Internal error
-		//400 -- Bad request
+		System.out.println("Size of active lninks & images--->"+ activeLinks.size());  //Only getting full links & images, NOT active links & images, no href  
+		                                         
+		//3. Check the href url, with http connection api:
 		
 		for(int j=0; j<activeLinks.size(); j++) {
 			
@@ -84,10 +82,16 @@ public class BrokenLinkTest {
 		String response = connection.getResponseMessage(); //Ok  or return error
 		connection.disconnect();
 		System.out.println(activeLinks.get(j).getAttribute("href") + "--->" + response );
+		
+		//Response codes will indicate which links are broken or or ok:  
+		//200 --OK
+		//404 -- Not Found
+		//500 -- Internal Server Error
+		//400 -- Bad request		
+		//Then in the console once we get a complete list of all links and find broken links, the broken links are the ones we report as bugs
 			
 		}
 		
-		//In the console once you get complete list of all links and find broken links, those are the ones we report as bugs
 	}
 
 }

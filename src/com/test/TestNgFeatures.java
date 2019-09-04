@@ -7,7 +7,7 @@ public class TestNgFeatures {
 	@Test
 	public void loginTest() {
 		System.out.println("LoginTest");
-		//int i = 9/0;   //If this code line is active then it will fail therefore all the subsequent TC will not execute
+		//int i = 9/0;   //If this line of code is active then it will fail therefore all the subsequent TC will not execute
 	}
 
 	@Test(dependsOnMethods="loginTest")     //EXACT METHOD NAME FROM ABOVE HAS TO BE COPIED & PASTED HERE... EXACT!
@@ -24,5 +24,4 @@ public class TestNgFeatures {
 	public void RegPageTest() {
 		System.out.println("RegPageTest");
 	} 
-
 }

@@ -32,16 +32,15 @@ public class TestNgBasics {
 @AfterClass --- Close Browser
 @AfterTest --- Delete all Fing Cookies
 
-   **IQ: How many annotation are available in TestNG?        
+   **IQ: How many annotations are available in TestNG?        
    *
    *Ans: The different annotations are: prerequisite annotations, test case annotations, and post condition 
    annotation so we can design our test cases in a sequencing manner. 
-   
-   
+ 
 	*/
 	
 	
-	//A test is warped in 2 conditions: Pre-condition, Test, and Post-Condition
+	//A test is warped in 2 conditions: Pre-condition ( Test in the middle ) and Post-Condition
 	
 	
 	//Pre-conditions Annotation are annotations starting with @BEFORE

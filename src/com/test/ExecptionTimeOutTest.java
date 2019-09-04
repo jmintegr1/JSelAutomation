@@ -5,7 +5,7 @@ import org.testng.annotations.Test;         //THIS IS A TEST of CHANGE FROM GITH
 public class ExecptionTimeOutTest {
 	
 	                       //**IQ: If you want to handle exceptions in TestNG, what is the keyword used to achieve that?  
-	                      //Ans: exceptedException
+	                      //Ans: exceptedExceptions
 /*	@Test(invocationTimeOut=2000,expectedExceptions=NumberFormatException.class) //The program works by running infinite loop but throwing failure ThreadTimeoutException as I set to 2 mili-seconds 
 	public void infintLoopTest(){ 
 		int i = 1;                   

@@ -1,17 +1,29 @@
 package jayAutomation;
 
-import org.openqa.selenium.Alert;   //Alert class imported from selenium 
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.Alert;   //Alert class (alert api) imported from selenium 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.safari.SafariDriver;
 
 public class AlertPopUpHandle {
 
 	public static void main(String[] args) throws InterruptedException {
 
 		
-		System.setProperty("webdriver.chrome.driver", "/Users/jewellmehedi/Downloads/chromedriver");
-		WebDriver driver = new ChromeDriver();
+//		System.setProperty("webdriver.chrome.driver", "/Users/jewellmehedi/Downloads/chromedriver");
+//		WebDriver driver = new ChromeDriver();
+		
+		WebDriver driver = new SafariDriver();
+		
+		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
+		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
+		
 		
 		driver.get("https://mail.rediff.com/cgi-bin/login.cgi");
 		
@@ -20,33 +32,42 @@ public class AlertPopUpHandle {
 		
 		Thread.sleep(5000);
 		
-		//IQ 100% asked: How will you handle alerts and popup?  //They can ask the method name, write the code of the switch method
+		          //driver.switchTo().alert() will give us an alert class object by storing it in the Alert class reference variable on the other side of = 
+		Alert alt = driver.switchTo().alert();  //Alert API is in selenium so we need to import it from selenium  //This shift the focus to the pop up box 
 		
-		//Ans: the four lines below is how you answer the IQ. We have to use alert API to handle alerts. Then 
-		//we have to switch to driver.switchTo.alert. then getText method and finally alert.accept method to click OK
+		//IQ 100% asked: How will you handle web alerts, or web based popups, or JavaScript popups?  //They can ask the method name, write the code of the switch method
+
+		
+		//Ans: I will use ALERT API to handle alerts so we need to switch to the alert window & then we can call the ALERT API.
+		               
+		//So I have to switch from popups, to where the CONTROL should be by using:  Alert alt = driver.switchTo().alert() methods 
 		
 		
-		Alert alert = driver.switchTo().alert();  //Alert is a class so it will need to import it from selenium  //This shift the focus to the pop up box 
+		//(Maybe this sentence is needed: then use .getText() method, validate using  if/else statement and finally accept
 		
-		System.out.println(alert.getText());  //So use getText method to get that "message" and put it in print line statement's parameter 
+		System.out.println(alt.getText());  //So use getText() method to get that "text message" of that particular alert so put it in print line statement's parameter 
 		
-		String text = alert.getText();
+	      
+		//We use alert to make sure the popup message is as it is expected and nothing different hence = TC is passed 
 		
-		if(text.equals("Please enter a valid user name")){
-			System.out.println("correct alert message");
+		String text = alt.getText(); //Now bring the alert.getText() method from print line statement and create a reference variable that stores the text with this method & use its instance variable 
+		                              //in if / else condition to validate
+		
+		if(text.equals("Please enter a valid user name")){  //This if/else statement helps with the validation point 
+			System.out.println("correct alert message Dudeee");
 		}
 		else {
 			System.out.println("in-coreect alert message");
 		}
 		
-		alert.accept();//Click on OK button
+		alt.accept();//This will Click on the OK button of the message on Alert, since there is no element then just the method will do 
 		
-		Thread.sleep(4000);
+		Thread.sleep(3000);
 				
 		driver.quit();
 		
-		//alert.dismiss(); //To click on cancel button if there is a button dismissal, then use this method
-
+		//alert.dismiss(); //To click on cancel button if there is a button for dismissal, then use this method but here we don't have it so keep it commented out 
+		
 	}
 
 }
