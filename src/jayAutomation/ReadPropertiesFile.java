@@ -11,7 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class ReadPropertiesFile {
 	
-	static WebDriver driver; //Took the local variable "WebDriver driver" from line 42 & turned it into Global variable so we can use that "driver" @ line 42 and in the rest of the class
+	static WebDriver driver; //Took the local variable "WebDriver driver" from line 42 & turned it into Global variable so we can use that "driver" @ line 42 or any where elese where DRIVER is needed in the rest of the class
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 
@@ -33,7 +33,7 @@ public class ReadPropertiesFile {
 			
 			System.out.println(browserName);
 			
-			
+						
 			//if(browserName.equals("chrome")) {
 			
 			System.setProperty("webdriver.chrome.driver", "/Users/jewellmehedi/Downloads/chromedriver");

@@ -29,12 +29,13 @@ public class FindElementsConcept {
 			//Both waits are Dynamic wait aka GLOBAL wait. Dynamic because it only waits for relevant loading time, and move onto action after. Where is STATIC WAIT like Thread.sleep(); hard coded and does not save time when page fully loaded
 			driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS); //Wait 40 seconds for page to load fully then perform some actions, if page loaded faster rest of the time is ignored
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); //Wait 30 seconds to load all elements then perform actions based on the script of that certain element. Some elements may not be loaded within 40 seconds explicit wait
-			
+            //Because it is GLOBAL wait, it will wait for all WebElements thereafter, it will wait in Dynamic fashion for the this WebElement to wait and if there were more, it will wait for those as well
+
 			driver.get("https://www.ebay.com/"); 
 		
 			
 			//All the links are represented by < a > html TAG so use tagName(): 
-//			List<WebElement> courageList = driver.findElements(By.tagName("a")); //Use "a" because <a> tag stands for all the links  
+//			List<WebElement> courageList = driver.findElements(By.tagName("a")); //Use "a" because <a> tag stands for All the links  
 //			                                //In .findElements with By.tagName() object we don't have to use .click or .sendKeys
 //			
 //			//Size of LinkedList:
@@ -83,6 +84,7 @@ public class FindElementsConcept {
 					String name = AllText.get(i).getText(); //Now we store the text inside an instantiated object: name
 					System.out.println(name);           //.getText() method is to get the TEXT
 			}
+			
 			
 			Thread.sleep(4000);
 			
