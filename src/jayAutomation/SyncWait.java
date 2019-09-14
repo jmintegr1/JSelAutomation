@@ -33,7 +33,7 @@ public class SyncWait {
 		driver.findElement(By.id("username")).sendKeys("jmintegr1@gmail.com");
 		driver.findElement(By.id("password")).sendKeys("1Zengogo");
 		driver.findElement(By.id("loginBtn")).click();
-		//Thread.sleep(4000);  //It is static wait where is explict & implicit waits are dynamic
+		//Thread.sleep(4000);  //It is static wait where as explicit & implicit waits are dynamic (Dynamic is better most of the time)
 		
 		//By header = By.xpath("//h1[@class='private-page__title']");  //"By" you have to create with By (class)......... 
 		//wait.until(ExpectedConditions.presenceOfElementLocated(header));
