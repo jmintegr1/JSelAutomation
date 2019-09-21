@@ -19,7 +19,7 @@ public class AlertPopUpHandle {
 //		System.setProperty("webdriver.chrome.driver", "/Users/jewellmehedi/Downloads/chromedriver");
 //		driver = new ChromeDriver();
 		
-		System.setProperty("webdriver.gecko.driver", "/Users/jewellmehedi/Downloads/geckodriver");
+		System.setProperty("webdriver.gecko.driver", "/Users/jewellmehedi/Downloads/geckodriver");   //FireFox Driver added
 		driver = new FirefoxDriver();
 				
 		//driver = new SafariDriver();
