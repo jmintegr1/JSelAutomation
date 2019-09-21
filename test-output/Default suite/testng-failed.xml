@@ -3,11 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="debug.MukeshDebug">
+      <class name="com.test.ExecptionTimeOutTest">
         <methods>
-          <include name="test2"/>
+          <include name="test1"/>
         </methods>
-      </class> <!-- debug.MukeshDebug -->
+      </class> <!-- com.test.ExecptionTimeOutTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

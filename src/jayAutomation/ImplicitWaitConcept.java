@@ -5,18 +5,23 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 public class ImplicitWaitConcept {
 
 	public static void main(String[] args) throws InterruptedException {
 
+		WebDriver driver; 
 		
 //		System.setProperty("webdriver.chrome.driver", "/Users/jewellmehedi/Downloads/chromedriver");
-//		WebDriver driver = new ChromeDriver();
+//		driver = new ChromeDriver();
+		
+		System.setProperty("webdriver.gecko.driver", "/Users/jewellmehedi/Downloads/geckodriver");
+		driver = new FirefoxDriver();
 		
 		
-		WebDriver driver = new SafariDriver();  // If I want to run it on Safari, seems like now I don't need to download the safari driver as long as I activate it from preferences and Developer meneu for automation  
+		//driver = new SafariDriver();  // If I want to run it on Safari, seems like now I don't need to download the safari driver as long as I activate it from preferences and Developer meneu for automation  
 		
 		driver.get("https://www.ebay.com/"); //Do this 3 steps below right away then go into actions 
 		

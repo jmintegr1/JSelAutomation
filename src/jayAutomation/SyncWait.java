@@ -11,12 +11,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class SyncWait {
 
 	public static void main(String[] args) throws InterruptedException {
+		
+		WebDriver driver;
 
 		System.setProperty("webdriver.gecko.driver", "/Users/jewellmehedi/Downloads/geckodriver");
 		
-		WebDriver driver = new FirefoxDriver();
-		driver = new FirefoxDriver(); 
+		driver = new FirefoxDriver();
+
 		//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
 		
 		
 		driver.get("https://app.hubspot.com/login"); 
@@ -46,6 +49,9 @@ public class SyncWait {
 		System.out.println(flag);
 		
 		System.out.println(driver.getTitle());
+		
+		
+		driver.quit();
 		
 		
 	}

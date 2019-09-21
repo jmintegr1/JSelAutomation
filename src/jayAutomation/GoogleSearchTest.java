@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 //import com.sun.tools.javac.util.List;
@@ -14,15 +15,20 @@ import org.openqa.selenium.safari.SafariDriver;
 public class GoogleSearchTest {
 
 	public static void main(String[] args) throws InterruptedException {
+		
+		WebDriver driver;
 
 		
 //		System.setProperty("webdriver.chrome.driver", "/Users/jewellmehedi/Downloads/chromedriver");
 //		WebDriver driver = new ChromeDriver();
 		
-		WebDriver driver = new SafariDriver();
+		System.setProperty("webdriver.gecko.driver", "/Users/jewellmehedi/Downloads/geckodriver");
+		driver = new FirefoxDriver();
+		
+		//driver = new SafariDriver();
 		
 		//driver.manage().window().maximize(); //maximize window
-		driver.manage().window().fullscreen();
+		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies(); //delete all cookies
 		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS); 	//Dynamic wait
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);

@@ -12,16 +12,22 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 public class BrokenLinkTest {
 
 	public static void main(String[] args) throws InterruptedException, MalformedURLException, IOException {
 		
+		WebDriver driver;
+		
 //		System.setProperty("webdriver.chrome.driver", "/Users/jewellmehedi/Downloads/chromedriver");
 //		WebDriver driver = new ChromeDriver();
 		
-		WebDriver driver = new SafariDriver();
+		System.setProperty("webdriver.gecko.driver", "/Users/jewellmehedi/Downloads/geckodriver");
+		driver = new FirefoxDriver();
+		
+		//driver = new SafariDriver();
 		
 		driver.manage().window().maximize(); 
 		driver.manage().deleteAllCookies();
@@ -89,6 +95,10 @@ public class BrokenLinkTest {
 		//500 -- Internal Server Error
 		//400 -- Bad request		
 		//Then in the console once we get a complete list of all links and find broken links, the broken links are the ones we report as bugs
+		
+		Thread.sleep(3000);
+		
+		driver.quit();
 			
 		}
 		

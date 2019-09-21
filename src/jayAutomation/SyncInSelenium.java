@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -13,11 +14,16 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class SyncInSelenium {
 
 	public static void main(String[] args) {
+		
+		WebDriver driver;
 
 //		System.setProperty("webdriver.chrome.driver", "	WebDriver driver = new SafariDriver();\n");
-//		WebDriver driver = new ChromeDriver();
+//		driver = new ChromeDriver();
 		
-		WebDriver driver = new SafariDriver();
+		System.setProperty("webdriver.gecko.driver", "/Users/jewellmehedi/Downloads/geckodriver");
+		driver = new FirefoxDriver();
+		
+		//driver = new SafariDriver();
 		
 		driver.get("http://www.freecrm.com");
 

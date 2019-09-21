@@ -5,6 +5,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 public class LocatorConcept {                             //VIDEO LOCATORS IN WEBDRIVER (ID, XPATH, CSSSelector etc) 
@@ -14,10 +15,15 @@ public class LocatorConcept {                             //VIDEO LOCATORS IN WE
 
 	public static void main(String[] args) throws InterruptedException {
 		
-//		System.setProperty("webdriver.chrome.driver", "/Users/jewellmehedi/Downloads/chromedriver");
-//		WebDriver driver = new ChromeDriver(); //Launch chrome
+		WebDriver driver;
 		
-		WebDriver driver = new SafariDriver();
+//		System.setProperty("webdriver.chrome.driver", "/Users/jewellmehedi/Downloads/chromedriver");
+//		driver = new ChromeDriver(); //Launch chrome
+		
+		System.setProperty("webdriver.gecko.driver", "/Users/jewellmehedi/Downloads/geckodriver");
+		driver = new FirefoxDriver();
+		
+		//driver = new SafariDriver();
 		
 		driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);   //Because it is GLOBAL wait, it will wait for all WebElements thereafter, it will wait in Dynamic fashion for the this WebElement to wait and if there were more, it will wait for those as well

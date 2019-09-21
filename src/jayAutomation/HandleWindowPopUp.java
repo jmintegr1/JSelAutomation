@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 public class HandleWindowPopUp {
@@ -17,11 +18,15 @@ public class HandleWindowPopUp {
 		//2. File upload pop up -- Browse Button (type="file" , sendKeys(the pass the path of it inside the parameter)
 		//3. Browser Window Popup -- or Advertisement pop up (windowHandler API -getWindowHandles() ) method
 
+		WebDriver driver;
 
 		//System.setProperty("webdriver.chrome.driver", "/Users/jewellmehedi/Downloads/chromedriver")
-		//WebDriver driver = new ChromeDriver();
+		//driver = new ChromeDriver();
 		
-		WebDriver driver = new SafariDriver();
+		System.setProperty("webdriver.gecko.driver", "/Users/jewellmehedi/Downloads/geckodriver");
+		driver = new FirefoxDriver();
+		
+		//driver = new SafariDriver();
 		
 		
 		driver.manage().window().maximize();   
@@ -70,9 +75,9 @@ public class HandleWindowPopUp {
 		driver.close();
 		
 		
-		//Thread.sleep(4000);
+		Thread.sleep(4000);
 		
-		//driver.quit();
+		driver.quit();
 
 	}
 

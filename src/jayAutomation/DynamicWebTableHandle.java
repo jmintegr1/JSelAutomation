@@ -5,13 +5,19 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class DynamicWebTableHandle {
 
 	public static void main(String[] args) throws InterruptedException {
 		
-		System.setProperty("webdriver.chrome.driver", "/Users/jewellmehedi/Downloads/chromedriver");
-		WebDriver driver = new ChromeDriver();
+		WebDriver driver;
+		
+//		System.setProperty("webdriver.chrome.driver", "/Users/jewellmehedi/Downloads/chromedriver");
+//		driver = new ChromeDriver();
+		
+		System.setProperty("webdriver.gecko.driver", "/Users/jewellmehedi/Downloads/geckodriver");
+		driver = new FirefoxDriver();
 		
 		driver.manage().window().maximize(); //maximize window
 		driver.manage().deleteAllCookies(); //delete all cookies
@@ -100,7 +106,7 @@ public class DynamicWebTableHandle {
 		
 		Thread.sleep(5000);
 
-		//driver.quit();
+		driver.quit();
 		
 		}		
 	}

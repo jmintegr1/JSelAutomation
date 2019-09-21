@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 
@@ -16,11 +17,16 @@ public class FindElementsConcept {
 		
 		
 		public static void main(String[] args) throws InterruptedException {
+			
+			WebDriver driver;
 
 //			System.setProperty("webdriver.chrome.driver", "/Users/jewellmehedi/Downloads/chromedriver");
 //			WebDriver driver = new ChromeDriver();
 			
-			WebDriver driver = new SafariDriver(); // If I want to run it on Safari, seems like now I don't need to download the safari driver as long as I activate it from preferences and Developer menu for automation  
+			System.setProperty("webdriver.gecko.driver", "/Users/jewellmehedi/Downloads/geckodriver");
+			driver = new FirefoxDriver();
+			
+			driver = new SafariDriver(); // If I want to run it on Safari, seems like now I don't need to download the safari driver as long as I activate it from preferences and Developer menu for automation  
 			
 			driver.manage().window().maximize();   
 			driver.manage().deleteAllCookies();

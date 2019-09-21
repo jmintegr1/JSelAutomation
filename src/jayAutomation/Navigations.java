@@ -4,16 +4,22 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 public class Navigations {
 
 	public static void main(String[] args) throws InterruptedException {
+		
+		WebDriver driver;
 
 //		System.setProperty("webdriver.chrome.driver", "/Users/jewellmehedi/Downloads/chromedriver");
-//		WebDriver driver = new ChromeDriver();
+//		driver = new ChromeDriver();
 		
-		WebDriver driver = new SafariDriver();
+		System.setProperty("webdriver.gecko.driver", "/Users/jewellmehedi/Downloads/geckodriver");
+		driver = new FirefoxDriver();
+		
+		//driver = new SafariDriver();
 		
 		
 		driver.manage().window().maximize();   
@@ -42,7 +48,7 @@ public class Navigations {
 		
 		driver.navigate().refresh();  //How to simulate refresh?
 		
-		Thread.sleep(4000);        //**IQ: What is the difference between driver.navigate to vs. driver.get?
+		Thread.sleep(5000);        //**IQ: What is the difference between driver.navigate to vs. driver.get?
                             //Well both are used to launch the url so driver.get comes as it first by populating the 1st page / url we want and then driver.navigate comes after to basically to navigate away to the following page
 		driver.quit();
 		
