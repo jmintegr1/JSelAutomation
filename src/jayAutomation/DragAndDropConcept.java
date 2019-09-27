@@ -15,11 +15,11 @@ public class DragAndDropConcept {
 
 		WebDriver driver; 
 		
-//		System.setProperty("webdriver.chrome.driver", "/Users/jewellmehedi/Downloads/chromedriver");
-//		WebDriver driver = new ChromeDriver();	
+		System.setProperty("webdriver.chrome.driver", "/Users/jewellmehedi/Downloads/chromedriver");
+		driver = new ChromeDriver();	
 		
 		System.setProperty("webdriver.gecko.driver", "/Users/jewellmehedi/Downloads/geckodriver");
-		driver = new FirefoxDriver();
+		//driver = new FirefoxDriver();
 		
 		//driver = new SafariDriver();
 		
@@ -47,7 +47,6 @@ public class DragAndDropConcept {
 		 
 		 
 		 //Actions class object has Build() and Perform() method.. (think of action as to perform)
-		
 		 
 		Thread.sleep(4000);  //Have to use throws 
 		

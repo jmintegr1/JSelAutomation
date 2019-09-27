@@ -1,3 +1,4 @@
+package com.test;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -8,27 +9,30 @@ public class CustomizeXpathandElementTest {
 
 	public static void main(String[] args) throws InterruptedException {
 		
+		WebDriver driver;
+		
 		System.setProperty("webdriver.chrome.driver", "/Users/jewellmehedi/Downloads/chromedriver");
-
-		WebDriver driver = new ChromeDriver();
+		driver = new ChromeDriver();
+		
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		
-//		driver.get("https://www.crmpro.com/index.html");
-//		
-//		driver.findElement(By.xpath("//input[@type='text']")).sendKeys("jmintegr1");
-//		driver.findElement(By.xpath("//input[@name='password']")).sendKeys("1zengogo");
-//		
-//		driver.findElement(By.xpath("//input[@type='submit']")).click();
+		driver.get("https://www.crmpro.com/index.html");
 		
-		driver.get("https://www.amazon.com/");
-		
+		driver.findElement(By.xpath("//input[@type='text']")).sendKeys("jmintegr1");
+		//Thread.sleep(2000);
 
-		Thread.sleep(3000);
+		driver.findElement(By.xpath("//input[@name='password']")).sendKeys("1zengogo");
+		Thread.sleep(2000);
+
+		driver.findElement(By.xpath("//input[@type='submit']")).click();
+		
+		Thread.sleep(2000);
 		
 		driver.quit();
+		
 		
 	}
 

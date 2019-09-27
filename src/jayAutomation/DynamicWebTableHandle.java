@@ -83,8 +83,7 @@ public class DynamicWebTableHandle {
 //		} 	
 //		
 		
-			
-			
+		
 		//METHOD #2 MY FAVORITE & recommended: We are using preceding / parental or sibling xpath, going backward from current  |  Forwarding sibling is for younger(next) 
 		//Cuz if we have 50 tc and then we have to use the loop system which means 4 or 5 lines of code again and again 
 	
@@ -94,6 +93,7 @@ public class DynamicWebTableHandle {
 		//BOX AND JUST ADDED MORE ATTRIBUTES TILL IT IS 1 OF 1
 		
 		//Next day I want to check box next to Test Run so just get it from the following check and REPLACE  'Nav Smith' with 'Test Run'.. 
+		
 		driver.findElement(By.xpath("//a[contains(text(),'Test Run')]/parent::td//preceding-sibling::td//input[@name='contact_id']")).click();
 		
 //		driver.findElement(By.xpath("//input[@type='checkbox' and @name='contact_id' and @value='52600634' ]")).click();  //MUCH EASIER AS I TOOK MY ABOVE CUSTOMIZED XPATH AND 

@@ -25,7 +25,7 @@ public class SyncInSelenium {
 		
 		//driver = new SafariDriver();
 		
-		driver.get("http://www.freecrm.com");
+		driver.get("https://app.hubspot.com/login");
 
 		//only for browser page loading
 		driver.manage().window().maximize();
@@ -38,13 +38,13 @@ public class SyncInSelenium {
 		
 		//explicit wait:
 		//used for the specific element
-		WebElement username = driver.findElement(By.name("username"));
-		sendKeys(driver, username, 5, "naveenk");
+		WebElement username = driver.findElement(By.id("username"));
+		sendKeys(driver, username, 5, "jmintegr1@gmail.com");
 		
-		WebElement pwd = driver.findElement(By.name("password"));
-		sendKeys(driver, pwd, 5, "test@123");
+		WebElement pwd = driver.findElement(By.id("password"));
+		sendKeys(driver, pwd, 5, "1Zengogo");
 		
-		WebElement signUp = driver.findElement(By.linkText("Sign Up"));
+		WebElement signUp = driver.findElement(By.id("loginBtn"));
 		clickOn(driver, signUp, 3);
 		
 	}
@@ -65,6 +65,8 @@ public class SyncInSelenium {
 		new WebDriverWait(driver, timeout).
 		until(ExpectedConditions.visibilityOf(element));
 		return element.getText();
+		
+		
 	}
 
 }

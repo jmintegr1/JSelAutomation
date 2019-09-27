@@ -1,23 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="3" failed="1" ignored="0" total="4" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="37" started-at="2019-09-20T15:04:35Z" finished-at="2019-09-20T15:04:35Z">
+  <suite name="Default suite" duration-ms="26" started-at="2019-09-26T23:51:33Z" finished-at="2019-09-26T23:51:33Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="37" started-at="2019-09-20T15:04:35Z" finished-at="2019-09-20T15:04:35Z">
-      <class name="com.test.ExecptionTimeOutTest">
-        <test-method status="PASS" signature="test1()[pri:0, instance:com.test.ExecptionTimeOutTest@15d0c81b]" name="test1" duration-ms="8" started-at="2019-09-20T15:04:35Z" finished-at="2019-09-20T15:04:35Z">
-          <exception class="java.lang.NumberFormatException">
+    <test name="Default test" duration-ms="26" started-at="2019-09-26T23:51:33Z" finished-at="2019-09-26T23:51:33Z">
+      <class name="com.test.TestNgFeatures">
+        <test-method status="FAIL" signature="loginTest()[pri:0, instance:com.test.TestNgFeatures@74650e52]" name="loginTest" duration-ms="6" started-at="2019-09-26T23:51:33Z" finished-at="2019-09-26T23:51:33Z">
+          <exception class="java.lang.ArithmeticException">
             <message>
-              <![CDATA[For input string: "100A"]]>
+              <![CDATA[/ by zero]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.NumberFormatException: For input string: "100A"
-at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
-at java.lang.Integer.parseInt(Integer.java:580)
-at java.lang.Integer.parseInt(Integer.java:615)
-at com.test.ExecptionTimeOutTest.test1(ExecptionTimeOutTest.java:20)
+              <![CDATA[java.lang.ArithmeticException: / by zero
+at com.test.TestNgFeatures.loginTest(TestNgFeatures.java:10)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -45,11 +42,104 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.NumberFormatException -->
+          </exception> <!-- java.lang.ArithmeticException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- test1 -->
-      </class> <!-- com.test.ExecptionTimeOutTest -->
+        </test-method> <!-- loginTest -->
+        <test-method status="SKIP" signature="HomePageTest()[pri:0, instance:com.test.TestNgFeatures@74650e52]" name="HomePageTest" duration-ms="0" started-at="2019-09-26T23:51:33Z" depends-on-methods="com.test.TestNgFeatures.loginTest" finished-at="2019-09-26T23:51:33Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method TestNgFeatures.HomePageTest()[pri:0, instance:com.test.TestNgFeatures@74650e52] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method TestNgFeatures.HomePageTest()[pri:0, instance:com.test.TestNgFeatures@74650e52] depends on not successfully finished methods
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- HomePageTest -->
+        <test-method status="SKIP" signature="RegPageTest()[pri:0, instance:com.test.TestNgFeatures@74650e52]" name="RegPageTest" duration-ms="0" started-at="2019-09-26T23:51:33Z" depends-on-methods="com.test.TestNgFeatures.loginTest" finished-at="2019-09-26T23:51:33Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method TestNgFeatures.RegPageTest()[pri:0, instance:com.test.TestNgFeatures@74650e52] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method TestNgFeatures.RegPageTest()[pri:0, instance:com.test.TestNgFeatures@74650e52] depends on not successfully finished methods
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- RegPageTest -->
+        <test-method status="SKIP" signature="SearchPageTest1()[pri:0, instance:com.test.TestNgFeatures@74650e52]" name="SearchPageTest1" duration-ms="0" started-at="2019-09-26T23:51:33Z" depends-on-methods="com.test.TestNgFeatures.loginTest" finished-at="2019-09-26T23:51:33Z">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method TestNgFeatures.SearchPageTest1()[pri:0, instance:com.test.TestNgFeatures@74650e52] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method TestNgFeatures.SearchPageTest1()[pri:0, instance:com.test.TestNgFeatures@74650e52] depends on not successfully finished methods
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:888)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SearchPageTest1 -->
+      </class> <!-- com.test.TestNgFeatures -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
