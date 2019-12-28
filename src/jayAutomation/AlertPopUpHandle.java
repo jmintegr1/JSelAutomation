@@ -38,7 +38,7 @@ public class AlertPopUpHandle {
 		
 		Thread.sleep(5000);
 		
-		          //driver.switchTo().alert() will give us an alert class object by storing it in the Alert class reference variable on the other side of = 
+		          //driver.switchTo().alert() will give us an alert class object by storing it in the Alert class reference variable "alt" on the other side of = 
 		Alert alt = driver.switchTo().alert();  //Alert API is in selenium so we need to import it from selenium  //This shift the focus to the pop up box 
 		
 		//IQ 100% asked: How will you handle web alerts, or web based popups, or JavaScript popups?  //They can ask the method name, write the code of the switch method
@@ -46,10 +46,10 @@ public class AlertPopUpHandle {
 		
 		//Ans: I will use ALERT API to handle alerts so we need to switch to the alert window & then we can call the ALERT API.
 		               
-		//So I have to switch from popups, to where the CONTROL should be by using:  Alert alt = driver.switchTo().alert() methods 
+		//So I have to switch from popups, to where the CONTROL should be by using:  Alert alt = driver.switchTo().alert() method 
 		
 		
-		//(Maybe this sentence is needed: then use .getText() method, validate using  if/else statement and finally accept
+		//(Maybe this sentence is needed: then use .getText() method, VALIDATE using  if/else statement and finally accept
 		
 		System.out.println(alt.getText());  //So use getText() method to get that "text message" of that particular alert so put it in print line statement's parameter 
 		
@@ -66,13 +66,13 @@ public class AlertPopUpHandle {
 			System.out.println("in-coreect alert message");
 		}
 		
-		alt.accept();//This will Click on the OK button of the message on Alert, since there is no element then just the method will do 
+		alt.accept();//accept() method will Click on the OK button of the message on Alert, since there is no element then just the method will do 
 		
-		Thread.sleep(3000);
+		Thread.sleep(3000);  //Write Static wait (Thread.sleep() ) we'll get error in red and once we put mouse on it, we'll get options for throws or try/catch block to handle it
 				
 		driver.quit();
 		
-		//alert.dismiss(); //To click on cancel button if there is a button for dismissal, then use this method but here we don't have it so keep it commented out 
+		//alert.dismiss(); //To click on CANCEL button if there is a button for dismissal, then use this method but here we don't have it so keep it commented out for knowledge\
 		
 	}
 

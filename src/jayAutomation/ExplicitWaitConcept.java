@@ -24,6 +24,8 @@ public class ExplicitWaitConcept {
 		System.setProperty("webdriver.gecko.driver", "/Users/jewellmehedi/Downloads/geckodriver");
 		driver = new FirefoxDriver();
 		
+		//WebDriver driver = new FirefoxDriver(); //In one shot w/out global variable being then initialized and instantiated
+		
 		//driver = new SafariDriver();
 		
 		
@@ -31,7 +33,7 @@ public class ExplicitWaitConcept {
 		driver.manage().deleteAllCookies();
 	
 		//Dynamic wait aka GLOBAL wait = (available for all Web Elements below) Dynamic because it only waits for relevant loading time, and move onto action after. Where is STATIC WAIT like Thread.sleep(); hard coded and does not save time when page fully loaded
-		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);//Wait for page to load fully, even if few elements are not loaded yet, that's why implicit wait comes in
+		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);//Wait for page to load fully, even if few elements are not loaded yet, that's when implicit wait comes in
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); //Wait 30 seconds to load ALL ELEMENTS then perform actions based on the script of that certain element. Some elements may not be loaded within 40 seconds explicit wait
         //Because it is GLOBAL wait, it will wait for all WebElements thereafter, it will wait in Dynamic fashion for the this WebElement to wait and if there were more, it will wait for those as well
 
@@ -48,7 +50,7 @@ public class ExplicitWaitConcept {
 			new WebDriverWait(driver, timeout).ignoring(StaleElementReferenceException.class).until(ExpectedConditions.elementToBeClickable(locator));
 			locator.click();    
 		
-			Thread.sleep(4000);
+			Thread.sleep(4000);  //Write Static wait (Thread.sleep() ) we'll get error in red and once we put mouse on it, we'll get options for throws or try/catch block to handle it
 		
 			driver.quit();	
 			

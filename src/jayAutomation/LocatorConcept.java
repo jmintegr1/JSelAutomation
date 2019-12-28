@@ -79,10 +79,10 @@ public class LocatorConcept {                             //VIDEO LOCATORS IN WE
 		//7. Class..   not recommended (4th Priority) Class name: not useful as another element may have the same class name, can be duplicate classes 
 		//driver.findElement(By.className("socWrap")).click();
 		
-		Thread.sleep(5000);
+		Thread.sleep(5000); //Write Static wait (Thread.sleep() ) we'll get error in red and once we put mouse on it, we'll get options for throws or try/catch block to handle it
 		
 		driver.quit();       //Quit() is to close ALL opened window associated with the object that ran it. BEST ELEMENTS TO USE: XPATH, ID, NAME & CSSSelector 
-		//driver.close(); //I think close is close just the current window that ran..        VIDEO CONTINUES to HandleDropBox class @ 40:40  
+		//driver.close(); //Close is to close just the current window that run..        VIDEO CONTINUES to HandleDropBox class @ 40:40  
 		
 	}
 }

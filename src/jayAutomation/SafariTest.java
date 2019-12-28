@@ -38,7 +38,7 @@ public class SafariTest {
 		driver.quit();
 		
 		
-		//How exactly is safari browser is launching?   
+		//How exactly is Safari browser is launching?   
 		//Ans: I need to enable allow remote automation.  
 		//(To do that: 1) go to preferences on Safari 
 		//2) Click on ADVANCE and check Show DEVELOP MENU software testing types in the menu bar 

@@ -11,9 +11,12 @@ public class WebDriverFireFox {
 
 	public static void main(String[] args) throws InterruptedException {
 		
-		//WebDriver driver;
+		WebDriver driver;
 		System.setProperty("webdriver.gecko.driver", "/Users/jewellmehedi/Downloads/geckodriver");
-		WebDriver driver = new FirefoxDriver(); //Instantiate WebDriver as the interface gets implemented by FirefoxDriver(); class
+		
+		driver = new FirefoxDriver();
+		
+		//WebDriver driver = new FirefoxDriver(); //Instantiate WebDriver as the interface gets implemented by FirefoxDriver(); class
 
 		//driver.get(baseURL);	
 		driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS); //Now with driver instance variable call all the methods
@@ -28,7 +31,7 @@ public class WebDriverFireFox {
 		System.out.println(title); //Now we can use title reference variable to call it & print it in PLS
 		
 		//Validation point = Actual thing VS. Expected thing, this is basically testing itself 
-		if(title.equals("Google")) {
+		if(title.equals("Bulldog Mindset Membership")) {
 			System.out.println("correct title");      //Including validation point = Automation Testing 
 		}
 		else {   //This is a complete TC = Test Case is combination of different how to steps to reproduce expected results vs. actual result                                       

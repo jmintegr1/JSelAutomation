@@ -26,7 +26,7 @@ public class FindElementsConcept {
 			System.setProperty("webdriver.gecko.driver", "/Users/jewellmehedi/Downloads/geckodriver");
 			driver = new FirefoxDriver();
 			
-			driver = new SafariDriver(); // If I want to run it on Safari, seems like now I don't need to download the safari driver as long as I activate it from preferences and Developer menu for automation  
+			//driver = new SafariDriver(); // If I want to run it on Safari, seems like now I don't need to download the safari driver as long as I activate it from preferences and Developer menu for automation  
 			
 			driver.manage().window().maximize();   
 			driver.manage().deleteAllCookies();
@@ -38,35 +38,34 @@ public class FindElementsConcept {
             //Because it is GLOBAL wait, it will wait for all WebElements thereafter, it will wait in Dynamic fashion for the this WebElement to wait and if there were more, it will wait for those as well
 
 			driver.get("https://www.ebay.com/"); 
-		
-			
-			//All the links are represented by < a > html TAG so use tagName(): 
-//			List<WebElement> courageList = driver.findElements(By.tagName("a")); //Use "a" because <a> tag stands for All the links  
-//			                                //In .findElements with By.tagName() object we don't have to use .click or .sendKeys
-//			
-//			//Size of LinkedList:
-//			System.out.println(courageList.size()); //Just link size total 
 			
 //			1. ****IQ: How to get the TOTAL COUNT of all the LINKS, INPUT, or BUTTON FIELDS that are on a page?
 //			
-//			Ans: I will use driver.findElements(By.tagName("A") and pass "A" in the parameter since it is tag we are looking for then 
-//			initialize it with List interface <WebElement> in generic and use its instance variable to call the size() in PLS.
-//			
+//			Ans: I will use driver.findElements(By.tagName("A") and pass "A" in the parameter since it is the A tag we are looking for. Then 
+//			initialize it with List <WebElement> (List interface extends WebElement interface) in generic and use its instance variable to call the size() in PLS.
+		
+					
+			//All the LINKS are represented by < a > html TAG so use tagName(): 
+			List<WebElement> completeList = driver.findElements(By.tagName("a")); //Use "a" because <a> tag stands for All the links  
+			                                //In .findElements with By.tagName() object we don't have to use .click or .sendKeys
+			
+			//Size of LinkedList:
+			System.out.println(completeList.size()); //Just link size total 
 			
 			
-//			//How many input are there?
-//			
-//			List <WebElement> linkList2 = driver.findElements(By.tagName("input"));  //****How to use By.tagName & why?  
-//			                         //When use .findElements to initialize than on left hand side of = use List <WebElement> to store links or the tag
+			
+			//How many input are there?
+			
+//			List <WebElement> linkList2 = driver.findElements(By.tagName("input"));  //***How to use By.tagName & why?  
+//			                      //When we use .findElements() it is to initialize it than on left hand side of = use List <WebElement> to store the links, use its reference variable 
 //			
 //			System.out.println(linkList2.size());
 
 			
 			
-			
 			//How many buttons are there?
 
-//			List <WebElement> btn = driver.findElements(By.tagName("button"));  
+//			List <WebElement> btn = driver.findElements(By.tagName("button")); //Type of object combo of List Interface & Selenium methods  
 //
 //			System.out.println(btn.size());
 
@@ -80,19 +79,19 @@ public class FindElementsConcept {
 			// Ans: To print all values & text we use for loop:
 			 
 			//Step A: Instantiate List Interface with tagName() method and pass in "A"
-			List <WebElement> AllText = driver.findElements(By.tagName("a")); 
-			             
-			//Step B: Get Size
-			System.out.println(AllText.size());  //.size(); Gives the count of all the links 
-			 
-			//Step C: for loop 
-			for(int i=0; i<AllText.size(); i++) {            //.get(); method to get 1st link to start until loop is over
-					String name = AllText.get(i).getText(); //Now we store the text inside an instantiated object: name
-					System.out.println(name);           //.getText() method is to get the TEXT
-			}
-			
-			
-			Thread.sleep(4000);
+//			List <WebElement> AllText = driver.findElements(By.tagName("a")); 
+//			             
+//			//Step B: Get Size
+//			System.out.println(AllText.size());  //.size(); Gives the count of all the links 
+//			 
+//			//Step C: for loop 
+//			for(int i=0; i<AllText.size(); i++) {            //.get() method to get the 1st link to start until loop is over
+//					String name = AllText.get(i).getText(); //Now we store the text inside an instantiated object: "name" (Type of a object, combo of String class.. Variable & Selenium methods)
+//					System.out.println(name);           //.getText() method is to get the TEXT
+//			}
+//			
+//			
+			Thread.sleep(4000); //Write Static wait (Thread.sleep() ) we'll get error in red and once we put mouse on it, we'll get options for throws or try/catch block to handle it
 			
 			driver.quit();
 			

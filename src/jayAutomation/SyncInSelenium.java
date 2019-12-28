@@ -31,21 +31,17 @@ public class SyncInSelenium {
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS); 
-		
-		//for all the elements -- global wait -- implicit wait
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		//for all the elements -- global wait -- implicit wait
 		
 		
 		//explicit wait:
 		//used for the specific element
-		WebElement username = driver.findElement(By.id("username"));
-		sendKeys(driver, username, 5, "jmintegr1@gmail.com");
+		WebElement username = driver.findElement(By.id("username"));sendKeys(driver, username, 5, "jmintegr1@gmail.com");
 		
-		WebElement pwd = driver.findElement(By.id("password"));
-		sendKeys(driver, pwd, 5, "1Zengogo");
+		WebElement pwd = driver.findElement(By.id("password"));sendKeys(driver, pwd, 5, "1Zengogo");
 		
-		WebElement signUp = driver.findElement(By.id("loginBtn"));
-		clickOn(driver, signUp, 3);
+		WebElement signUp = driver.findElement(By.id("loginBtn"));clickOn(driver, signUp, 3);
 		
 	}
 	

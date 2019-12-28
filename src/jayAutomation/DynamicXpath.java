@@ -23,14 +23,12 @@ public class DynamicXpath {
 		
 		driver.manage().window().maximize(); //maximize window
 		driver.manage().deleteAllCookies(); //delete all cookies
-		
-		//Dynamic wait
-		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);   //Dynamic wait
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         //Because it is GLOBAL wait, it will wait for all WebElements thereafter, it will wait in Dynamic fashion for the this WebElement to wait and if there were more, it will wait for those as well
 
 		
-		driver  .get("https://classic.crmpro.com/index.html"); 
+		driver.get("https://classic.crmpro.com/index.html"); 
 		
 		driver.findElement(By.name("username")).sendKeys("jmintegr1");
 		Thread.sleep(1000);  //SEEMS LIKE IT NEEDS THREAD.SLEEP TIME FOR LOGIN BUTTON TO CLICK & WORK
@@ -55,15 +53,15 @@ public class DynamicXpath {
 	
 		
 		//Easy way.. xpath from cropath, from WebTable same as DynamicWebTableHandle
-		//driver.findElement(By.xpath("//a[contains(text(),'Contacts')]")).click();  //Will take it to Contact tab 
+		driver.findElement(By.xpath("//a[contains(text(),'Contacts')]")).click();  //Will take it to Contact tab 
 		
-		//driver.findElement(By.xpath("//input[@value='52600633']")).click(); //To check box next to Nav Smith
+		driver.findElement(By.xpath("//input[@value='52600633']")).click(); //To check box next to Nav Smith
 		
 		//Long way but great for learning like Naveen
 		
-		//driver.findElement(By.xpath("//a[text()='Nav Smith']//parent::td[@class='datalistrow']//preceding-sibling::td[@class='datalistrow']//input[@name='contact_id']")).click();
+		driver.findElement(By.xpath("//a[text()='Nav Smith']//parent::td[@class='datalistrow']//preceding-sibling::td[@class='datalistrow']//input[@name='contact_id']")).click();
 		
-		//driver.findElement(By.xpath("//a[text()='Test Run']//parent::td[@class='datalistrow']//preceding-sibling::td[@class='datalistrow']//input[@name='contact_id']")).click();
+		driver.findElement(By.xpath("//a[text()='Test Run']//parent::td[@class='datalistrow']//preceding-sibling::td[@class='datalistrow']//input[@name='contact_id']")).click();
 		//Let's say tomorrow I want to check the next box so just use the above link and just change Nav Smith to Test Run for the following contact box 
 		
 		
@@ -80,12 +78,12 @@ public class DynamicXpath {
 
 		//preceding-sibling::td[@class='datalistrow']   (Parent’s brother’s (Sibling’s) td)
 
-		//input[@name='contact_id']     (cousin’s)   
+		//input[@name='contact_id'])).click     (cousin’s)   
 
  		****Exact xpath of Nav Smith’s check box!! */
 
 		
-		Thread.sleep(3000);
+		Thread.sleep(3000);  //Write Static wait (Thread.sleep() ) we'll get error in red and once we put mouse on it, we'll get options for throws or try/catch block to handle it
 		
 		driver.quit();
 		

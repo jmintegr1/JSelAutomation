@@ -40,7 +40,7 @@ public class TestNgBasics {
 	*/
 	
 	
-	//A test is warped in 2 conditions: Pre-condition ( Test in the middle ) and Post-Condition
+	//A test is warped in 2 conditions: Pre-condition -- Test in the middle -- and Post-Condition
 	
 	
 	//Pre-conditions Annotation are annotations starting with @BEFORE
@@ -64,16 +64,16 @@ public class TestNgBasics {
 	/*Sequence flows like this     | During interview sequence will be asked
 	 * 
 	 * @BeforeMethod
-	 * @Test -1
+	 * @Test #1
 	 * @AfterMethod
 	 * 
 	 * 
 	 *@BeforeMethod
-	 *@GTest -2
+	 *@GTest #2
 	 *@AfterMethod
 	 * 
 	 *BeforeMethod
-	 *@GTest -3
+	 *@GTest #3
 	 *@AfterMethod
 	 */
 
@@ -83,7 +83,7 @@ public class TestNgBasics {
 		System.out.println("@BeforeMethod enter URL");
 	}
 	
-	//Test case --starting with @TEST      //If IQ: How many Test Case we have in this class? Ans: We just count how many @TEST annotation are there = 1 TC in this class
+	//Test case --starting with @TEST      //If IQ: How many Test Case we have in this class? Ans: We just count how many @TEST annotation are there = So 1 TC in this class
 	@Test   //5th
 	public void googleTitleTest() {          //Why @Test merging with @AfterMethod below in console? According to Nav, it suppose to execute @AfterMethod before 
 		System.out.print("@Test --- Google Title Test");                

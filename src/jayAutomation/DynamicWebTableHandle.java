@@ -30,7 +30,11 @@ public class DynamicWebTableHandle {
 		
 		driver.get("https://classic.crmpro.com/index.html"); 
 		
-		driver.findElement(By.name("username")).sendKeys("jmintegr1");
+		//driver.findElement(By.name("username")).sendKeys("jmintegr1");
+		
+		driver.findElement(By.xpath("//input[@placeholder='Username']")).sendKeys("JMINTEGR1");
+		
+		
 		Thread.sleep(1000);  //SEEMS LIKE IT NEEDS THREAD.SLEEP TIME FOR LOGIN BUTTON TO CLICK & WORK
 		
 		
@@ -87,9 +91,9 @@ public class DynamicWebTableHandle {
 		//METHOD #2 MY FAVORITE & recommended: We are using preceding / parental or sibling xpath, going backward from current  |  Forwarding sibling is for younger(next) 
 		//Cuz if we have 50 tc and then we have to use the loop system which means 4 or 5 lines of code again and again 
 	
-		driver.findElement(By.xpath("//a[contains(text(),'Nav Smith')]/parent::td//preceding-sibling::td//input[@name='contact_id']")).click();
+//		driver.findElement(By.xpath("//a[contains(text(),'Nav Smith')]/parent::td//preceding-sibling::td//input[@name='contact_id']")).click();
 		
-//		driver.findElement(By.xpath("//input[@type='checkbox' and @name='contact_id' and @value='52600633' ]")).click(); //I DID THIS MYSELF, WHICH WAS LOT EASIER AS I WENT RIGHT FOR CHECK 
+		driver.findElement(By.xpath("//input[@type='checkbox' and @name='contact_id' and @value='52600633' ]")).click(); //I DID THIS MYSELF, WHICH WAS LOT EASIER AS I WENT RIGHT FOR CHECK 
 		//BOX AND JUST ADDED MORE ATTRIBUTES TILL IT IS 1 OF 1
 		
 		//Next day I want to check box next to Test Run so just get it from the following check and REPLACE  'Nav Smith' with 'Test Run'.. 
@@ -104,7 +108,7 @@ public class DynamicWebTableHandle {
 		//perform the action. It is also writing less line of code.
 		
 		
-		Thread.sleep(5000);
+		Thread.sleep(5000); //Write Static wait (Thread.sleep() ) we'll get error in red and once we put mouse on it, we'll get options for throws or try/catch block to handle it
 
 		driver.quit();
 		

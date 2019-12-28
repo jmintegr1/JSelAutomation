@@ -55,10 +55,10 @@ public class SuaceLabsTest1 {
  
         /**
          * In this section, we will set the WebDriver to a Remote driver to run on sauce, and pass the capabilities
-         * we just set. Then we perform som actions on the page before quitting the driver.
+         * we just set. Then we perform some actions on the page before quitting the driver.
          */
  
-        //create a new Remote driver that will allow your test to send
+        //Create a new Remote driver that will allow your test to send
         // commands to the Sauce Labs grid so that Sauce can execute your tests
         /** If you're accessing the EU data center, use the following endpoint:.
          * https://ondemand.eu-central-1.saucelabs.com/wd/hub

@@ -20,6 +20,8 @@ public class HandleFileUploadPopUp {
 		System.setProperty("webdriver.gecko.driver", "/Users/jewellmehedi/Downloads/geckodriver");
 		driver = new FirefoxDriver();
 		
+		//WebDriver = new FirefoxDriver(); To do it in one shot
+		
 		//driver = new SafariDriver();
 		
 		driver.manage().window().maximize();
@@ -31,17 +33,18 @@ public class HandleFileUploadPopUp {
 		
 		driver.get("https://html.com/input-type-file/");
 		
-		//Do not use .click on browse button or choose file, then you are stuck coz that will take you away from browser and into your computer and selenium is web based, not desktop based  
+		//Do not use .click on browser button or choose file, then you are stuck coz that will take you away from browser and into your computer and selenium is web based, not desktop based  
 		driver.findElement(By.xpath("//input[@id='fileupload']")).sendKeys("/Users/jewellmehedi/Documents/Naveen's Automation Lab Notes.docx");
-		                                                //So use .sendKeys then pass the values of file path where the data I want to upload...
+		                                                //So use .sendKeys then pass the values of file path where the data I want to upload from..
 		
 		//It will ONLY work if have ** type="file" ** attribute/value is available when you spy/inspect the element
 		//Just spy by inspector and get the element key....
 
-		//****IQ  100% asked: How to do you handle window's or computer's file upload popups?   Ans - After I get the xpath or locator (element key) INSTEAD of using .click method, I'll use .sendKEYS method TO up load 
-		//..the file from whatever directory by using the file path. (To get the path in mac, high light the directory, right click & hold option and copy it then put it in .sendKeys method parameter) 
+		//****IQ  100% asked: How to do you handle window's or computer's file upload popups?   
+		//Ans - After I get the xpath or locator (element key) INSTEAD of using .click method.. I'll use .sendKeys() method TO up load 
+		//..the file from whatever directory by using the file path. (To get the path in mac, high light the directory, right click & hold option and copy it then put it in .sendKeys() method parameter) 
 				
-		Thread.sleep(4000);
+		Thread.sleep(4000);  //Write Static wait (Thread.sleep() ) we'll get error in red and once we put mouse on it, we'll get options for throws or try/catch block to handle it
 		
 		driver.quit();
 	}

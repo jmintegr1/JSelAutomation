@@ -5,7 +5,9 @@ import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -13,14 +15,17 @@ import org.testng.annotations.Test;
 public class GoogleTest {   //Proper convention to use the keyword "Test" in your Test Class 
 	
 	
-	WebDriver driver;
-	
+	WebDriver driver;  // Since splitting up the WebDriver object so declare the variable here then fully instantiate on line 21
+//	
 	@BeforeMethod
 	public void setUp() {
-		System.setProperty("webdriver.chrome.driver", "/Users/jewellmehedi/Downloads/chromedriver");
-		driver = new ChromeDriver();  //Launch Chrome 
+//		System.setProperty("webdriver.chrome.driver", "/Users/jewellmehedi/Downloads/chromedriver");
+//		driver = new ChromeDriver();  //Launch Chrome 
 		
-//		WebDriver driver = new SafariDriver();
+		System.setProperty("webdriver.gecko.driver", "/Users/jewellmehedi/Downloads/geckodriver");   //FireFox Driver added
+		driver = new FirefoxDriver();
+		
+		//WebDriver driver = new SafariDriver();
 		
 	    driver.manage().window().maximize();
 	    driver.manage().deleteAllCookies();
@@ -28,7 +33,7 @@ public class GoogleTest {   //Proper convention to use the keyword "Test" in you
 	    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	    driver.get("http://www.google.com");
 	}
-	              //,groups="......" helps to organize   also ***IQ: How will you define the grouping in TestNG? Ans: we use KEYWORD: groupS (with "S" plural)  
+	              //,groups=" .... " helps to organize   also ***IQ: How will you define the grouping in TestNG? Ans: we use KEYWORD: groupS (with "S" for plural)  
 	@Test(priority=1,groups="Title")       //Test #1
 	public void googleTitleTest() {         //Although sequence is paired like: 1st BeforeMethod, 2nd all TCs, and 3rd AfterMethod but Selenium randomly picks 1 TC at time
 		String title = driver.getTitle();   //so it can pick #2 googleLogoTest before googleTitleTes. 
@@ -38,12 +43,15 @@ public class GoogleTest {   //Proper convention to use the keyword "Test" in you
 	
 	@Test(priority=2,groups="Logo")              //Test#2
 	public void googleLogoTest() {
-		boolean b = driver.findElement(By.id("hplogo")).isDisplayed();  //Testing if Google logo is displayed or not?
+		boolean b = driver.findElement(By.id("hplogo")).isDisplayed();  //Testing if Google logo is displayed or not? So boolean verifys by is it there or not?
+		Assert.assertEquals(b, true);
 	}
+	
 	
 	@Test(priority=3,groups="Link Test")     //Test #3
 	public void mailLinkTest() {
-		driver.findElement(By.linkText("Gmails")).isDisplayed();   //isDisplayed() method to test if Gmail link is displayed or not?
+		boolean b = driver.findElement(By.linkText("Gmails")).isDisplayed();   //isDisplayed() method to test if Gmail link is displayed or not?
+		Assert.assertEquals(b, true);
 	}
 	
 	@Test(priority=4,groups="Test")  //#4 Chronologically going down
@@ -61,8 +69,13 @@ public class GoogleTest {   //Proper convention to use the keyword "Test" in you
 	public void test3() {
 		System.out.println("test3");
 	}
+	
+	@Test(priority=7,groups="Test")
+	public void test4() {
+		System.out.print("Test5 Mother fucker");
+	}
 
-	@AfterMethod
+	@AfterMethod             //This is how we clean up after running a test, remember UNUM question?
 	public void tearDown() {
 		driver.quit();
 		

@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test thread-count="5" name="Default test(failed)">
+<suite name="Failed suite [TestNG Session JayAutomation Suite]">
+  <test thread-count="5" name="TestNG Combo Googele Test Suite(failed)">
     <classes>
-      <class name="com.test.TestNgFeatures">
+      <class name="com.test.GoogleTitleTest">
         <methods>
-          <include name="loginTest"/>
-          <include name="RegPageTest"/>
-          <include name="SearchPageTest1"/>
-          <include name="HomePageTest"/>
+          <include name="setUp"/>
+          <include name="googleLogoTest"/>
+          <include name="tearDown"/>
         </methods>
-      </class> <!-- com.test.TestNgFeatures -->
+      </class> <!-- com.test.GoogleTitleTest -->
     </classes>
-  </test> <!-- Default test(failed) -->
-</suite> <!-- Failed suite [Default suite] -->
+  </test> <!-- TestNG Combo Googele Test Suite(failed) -->
+</suite> <!-- Failed suite [TestNG Session JayAutomation Suite] -->

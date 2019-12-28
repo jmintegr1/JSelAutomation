@@ -26,6 +26,8 @@ public class HandleWindowPopUp {
 		System.setProperty("webdriver.gecko.driver", "/Users/jewellmehedi/Downloads/geckodriver");
 		driver = new FirefoxDriver();
 		
+		//WebDriver driver = new FirefoxDriver(); //To instantiate & initialize in one shot  
+		
 		//driver = new SafariDriver();
 		
 		
@@ -39,17 +41,18 @@ public class HandleWindowPopUp {
 
 		
 		driver.get("http://www.popuptest.com/");
-		
+			
+				
 		driver.findElement(By.xpath("//a[contains(text(),'Modeless Window')]")).click();
 		
 		Thread.sleep(2000);
 		
 		        //Windows ID available in handler
-		Set<String> handler = driver.getWindowHandles();
+		Set<String> handler = driver.getWindowHandles();		
 
 		//In Set object the values are NOT stored on index basis, so for loop will NOT work to get the values. Then how will you get the values?
 		
-		Iterator<String> it = handler.iterator();   //Ans: We have to use iterator method 
+		Iterator<String> it = handler.iterator();   //Ans: We use Iterator Interface implementing String class 
 		
 		String parentWindowId = it.next();
 		System.out.println("parent window id:" + parentWindowId); //It will shift focus point on object in memory from above the object to the object as it points to the FIRST value of the SET (which is NOT organized on index basis)
@@ -57,9 +60,9 @@ public class HandleWindowPopUp {
 		String childWindowId = it.next();   //Now it will shift from first location in memory to location below in memory to access value
 		System.out.println("Child window id:"+childWindowId);
 		
-		driver.switchTo().window(childWindowId); //To get "Id" we have to switch
+		driver.switchTo().window(childWindowId); //To get "Id" we have to use switchTo() 
 		
-		Thread.sleep(2000);
+		Thread.sleep(2000);  //Write Static wait (Thread.sleep() ) we'll get error in red and once we put mouse on it, we'll get options for throws or try/catch block to handle it
 		
 		System.out.println("child window pop up title" + driver.getTitle());
 		

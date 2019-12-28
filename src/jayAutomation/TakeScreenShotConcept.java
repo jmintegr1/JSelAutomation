@@ -26,7 +26,7 @@ public class TakeScreenShotConcept {
 		
 		driver.manage().window().maximize();   
 		driver.manage().deleteAllCookies();
-	
+		
 		
 		//Dynamic wait aka GLOBAL wait. Dynamic because it only waits for relevant loading time, and move onto other action after. Where is STATIC WAIT like Thread.sleep(); hard coded and does not save time when page fully loaded
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS); //Wait 30 seconds to load all elements then perform actions based on the script of that certain element. Some elements may not be loaded within 40 seconds explicit wait

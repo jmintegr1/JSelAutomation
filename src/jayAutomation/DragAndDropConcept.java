@@ -15,11 +15,13 @@ public class DragAndDropConcept {
 
 		WebDriver driver; 
 		
-		System.setProperty("webdriver.chrome.driver", "/Users/jewellmehedi/Downloads/chromedriver");
-		driver = new ChromeDriver();	
+//		System.setProperty("webdriver.chrome.driver", "/Users/jewellmehedi/Downloads/chromedriver");
+//		driver = new ChromeDriver();	
 		
 		System.setProperty("webdriver.gecko.driver", "/Users/jewellmehedi/Downloads/geckodriver");
-		//driver = new FirefoxDriver();
+		driver = new FirefoxDriver();
+		
+//		WebDriver driver = new FirefoxDriver(); //This is if we want to instantiate in one shot and not use code lines 16 & 19
 		
 		//driver = new SafariDriver();
 		
@@ -30,8 +32,10 @@ public class DragAndDropConcept {
 		
 		
 		driver.get("http://jqueryui.com/droppable/");
+		            
 		
-		driver.switchTo().frame(0); //Use SwitchTo()  .frame() if FRAME is PRESENT. If only one frame then ZERO inside the frame parameter
+		 //Use SwitchTo().frame() if FRAME is PRESENT. 
+		driver.switchTo().frame(0); //If only ONE frame then ZERO inside the frame parameter
 		//To find frame, right click for page source code, then command f and type frame, will see it next to Iframe.
 	
 		//****IQ: How will you perform drag & drop using Selenium? 
@@ -41,18 +45,15 @@ public class DragAndDropConcept {
 		Actions action = new Actions(driver);
 		
 		//(if asked to elaborate)
-	    //action instance variable I will call .clickAndHold() method to grab the 1st box and moveToElement() to drag to the 2nd box 
+	    //action instance variable I will call .clickAndHold() method to grab the 1st box and call moveToElement() method to drag to the 2nd box 
 		 action.clickAndHold(driver.findElement(By.id("draggable"))).moveToElement(driver.findElement(By.id("droppable"))).release().build().perform();
 		                                    //Used ID here                                                .ID here
 		 
+		 //Actions class object has Release(), Build() and Perform() method.. (think of action as to perform)
 		 
-		 //Actions class object has Build() and Perform() method.. (think of action as to perform)
-		 
-		Thread.sleep(4000);  //Have to use throws 
-		
+		Thread.sleep(4000);  //Write Static wait (Thread.sleep() ) we'll get error in red and once we put mouse on it, we'll get options for throws or try/catch block to handle it
 		
 		driver.quit();
 	
 	}
-
 }

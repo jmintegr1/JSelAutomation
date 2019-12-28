@@ -61,7 +61,7 @@ public class ElementVisibilityTest {
 		System.out.println(b5); //False
 		
 		
-		Thread.sleep(3000);
+		Thread.sleep(3000);  //Write Static wait (Thread.sleep() ) we'll get error in red and once we put mouse on it, we'll get options for throws or try/catch block to handle it
 		
 		driver.quit();
 		

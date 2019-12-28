@@ -18,9 +18,11 @@ public class FrameHandling {
 //		WebDriver driver = new ChromeDriver();
 		
 		System.setProperty("webdriver.gecko.driver", "/Users/jewellmehedi/Downloads/geckodriver");
-		driver = new FirefoxDriver();
+		driver = new FirefoxDriver();    
+	    
+		//WebDriver driver = new FirefoxDriver(); //Or do it in one shot
 		
-		driver = new SafariDriver();
+		//driver = new SafariDriver();
 		
 		driver.manage().window().maximize(); //maximize window
 		driver.manage().deleteAllCookies(); //delete all cookies
@@ -28,7 +30,7 @@ public class FrameHandling {
 		//Dynamic wait
 		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        //Because it is GLOBAL wait, it will wait for all WebElements thereafter, it will wait in Dynamic fashion for the this WebElement to wait and if there were more, it will wait for those as well
+        //Because it is GLOBAL wait, it will wait for all WebElements thereafter, it will wait in Dynamic fashion for this WebElement and if there were more, it will wait for those as well
 
 		
 		driver.get("https://classic.crmpro.com/index.html"); 
@@ -45,8 +47,8 @@ public class FrameHandling {
 		
 		// 3 different xpaths: //input[@value='Login']   |   input[@type='submit'] Xpath Naveen used   |   //input[@class= 'btn btn-small']
 		
-		//How will you know if there is a frame? Ans: If an element is NOT taking then check if it is in different frame. So right click around the  
-		//button and click on view page source and use the name of the frame that contains the element. Then use switchTo method to.... 
+		//How will you know if there is a frame? Ans: After you create an element and the element is NOT taking then check if it is in different frame. So right click around the  
+		//button that you are inspecting and click on view page source and use the name of the frame that contains the element. Then use switchTo method to.... 
 
 		// *IQ How will you handle frame?   Ans:  I will use Driver dot switchTo(). dot frame method (side info: and in the parameter I will pass in the element)
 		driver.switchTo().frame("mainpanel"); //IQ*** WHAT IS THE FRAME METHOD & HOW MANY VALUES IT CAN ACCEPT & WHAT ARE THEY?
@@ -56,7 +58,8 @@ public class FrameHandling {
 		driver.findElement(By.xpath("//a[contains(text(),'Contacts')]")).click();
 		
 		
-		Thread.sleep(5000);  
+		Thread.sleep(5000); //Write Static wait (Thread.sleep() ) we'll get error in red and once we put mouse on it, we'll get options for throws or try/catch block to handle it
+		
 		driver.quit();
 				
 	}

@@ -21,12 +21,14 @@ public class MouseMovementHW {
 		System.setProperty("webdriver.gecko.driver", "/Users/jewellmehedi/Downloads/geckodriver");
 		driver = new FirefoxDriver();
 		
+		//WebDriver driver = new FirefoxDriver(); //FirefoxDirver in one shot
+		
 		//driver = new SafariDriver();
 		
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);  //Because it is GLOBAL wait, it will wait for all WebElements thereafter, it will wait in Dynamic fashion for the this WebElement to wait and if there were more, it will wait for those as well
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);  //Because it is GLOBAL wait, it will wait for all WebElements thereafter, it will wait in Dynamic fashion for the this WebElement to wait and if there are more, it will wait for those as well
 		
 		driver.get("https://us.puma.com/en/us/home/");
 		
@@ -37,15 +39,14 @@ public class MouseMovementHW {
 		action.moveToElement(driver.findElement(By.xpath("//span[contains(text(),'Womens')]"))).build().perform();  //Finish it off with .build().perform() for mouse hover, drag & drop, double click & right click
 		
 		
-		//Now inside of moveToElement(we pramaterize it so start with drver.findElement to call...  )
-
+		//Now inside of moveToElement(we parameterize it so start with drver.findElement to call...  )
 		
-		//span[@class='site-nav__list__name hovered']
+		                                                  //span[@class='site-nav__list__name hovered']
 		
-		action.moveToElement(driver.findElement(By.xpath("//span[@class='site-nav__list__name hovered']\n" + ""))).build().perform();
+		action.moveToElement(driver.findElement(By.xpath("//span[@class='site-nav__list__name hovered']\n"))).build().perform();
 		
 		
-		Thread.sleep(5000);
+		Thread.sleep(5000);  //As soon as we write Static wait (Thread.sleep() ) we'll get error in red and once we put mouse on it, we'll get options for throws or try/catch block to handle it
 
 		
 		driver.quit();	

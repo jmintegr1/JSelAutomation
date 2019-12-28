@@ -31,9 +31,7 @@ public class BrokenLinkTest {
 		
 		driver.manage().window().maximize(); 
 		driver.manage().deleteAllCookies();
-		
-		//Dynamic wait
-		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS); //Dynamic wait
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		
 		driver.get("https://classic.crmpro.com/index.html"); 
@@ -49,7 +47,6 @@ public class BrokenLinkTest {
 		driver.findElement(By.xpath("//input[@type='submit']")).click(); 
 		Thread.sleep(2000);
 
-		
 		driver.switchTo().frame("mainpanel");  //How will you check that Links are not broken?
 		Thread.sleep(2000);
 		
@@ -58,7 +55,7 @@ public class BrokenLinkTest {
 		
 		//1. Get list of all the links & images, by WebElement extending List interface: say it has 500 total links
 		
-		//IQ*** How will you check the total number of links that are available by dot tagName()?
+		//IQ*** How will you check the total number of links that are available by .tagName()?
 		List<WebElement> linkList = driver.findElements(By.tagName("a"));  //Will get the total <a tags (links) in the list object
 		linkList.addAll(driver.findElements(By.tagName("img")));          //Will get the total img (images)  
 		
@@ -70,7 +67,7 @@ public class BrokenLinkTest {
 		//2. Iterate reference variable (linkList): to exclude all the links/images that doesn't have any href attributes 
 		for(int i=0; i<linkList.size(); i++) {
 			System.out.println(linkList.get(i).getAttribute("href"));
-			if(linkList.get(i).getAttribute("href") != null && (! linkList.get(i).getAttribute("href").contains("javascript"))){ //This line and ! means NOT so it if it contains Javascript, even with href then exclude it
+			if(linkList.get(i).getAttribute("href") != null && (! linkList.get(i).getAttribute("href").contains("javascript"))){ //This line of code and ! means NOT so it if it contains Javascript, even with href then exclude it
 				activeLinks.add(activeLinks.get(i));
 			}
 		}
@@ -96,7 +93,7 @@ public class BrokenLinkTest {
 		//400 -- Bad request		
 		//Then in the console once we get a complete list of all links and find broken links, the broken links are the ones we report as bugs
 		
-		Thread.sleep(3000);
+		Thread.sleep(3000); //Write Static wait (Thread.sleep() ) we'll get error in red and once we put mouse on it, we'll get options for throws or try/catch block to handle it
 		
 		driver.quit();
 			
