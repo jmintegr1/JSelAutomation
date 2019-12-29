@@ -9,7 +9,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.safari.SafariDriver;
 
-public class DragAndDropConcept {                //Let's change the changes on UI.. 
+public class DragAndDropConcept {                 
 	public static void main(String[] args) throws InterruptedException {
 
 		WebDriver driver; 
