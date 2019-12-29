@@ -6,7 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
-public class Series7 {
+public class Series7 {  //Looks good.. please review my comments below..
 
 	public static void main(String[] args) throws IOException {  //So if file is not present from line 22.. you'll get FileNotFoundException then I added IOEception (InputOutPut Exception) for line 25 
 
