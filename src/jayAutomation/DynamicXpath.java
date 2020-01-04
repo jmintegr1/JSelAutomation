@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
-public class DynamicXpath {
+public class DynamicXpath {   //Customize Parent Child Preceding-Sibling Xpath
 
 	public static void main(String[] args) throws InterruptedException {
 		
@@ -55,12 +55,15 @@ public class DynamicXpath {
 		//Easy way.. xpath from cropath, from WebTable same as DynamicWebTableHandle
 		driver.findElement(By.xpath("//a[contains(text(),'Contacts')]")).click();  //Will take it to Contact tab 
 		
-		driver.findElement(By.xpath("//input[@value='52600633']")).click(); //To check box next to Nav Smith
+		//driver.findElement(By.xpath("//input[@value='52600633']")).click(); //Short way to check box next to Nav Smith
 		
-		//Long way but great for learning like Naveen
 		
+		//Long way to check Nav Smith but great for learning like Naveen Parent Child Preceding-Sibling customize xpath
+		
+		                     //Start w/child without title 
 		driver.findElement(By.xpath("//a[text()='Nav Smith']//parent::td[@class='datalistrow']//preceding-sibling::td[@class='datalistrow']//input[@name='contact_id']")).click();
 		
+		                             //a[text()='Test Run']//parent::td[@class='datalistrow']//preceding-sibling::td[@class='datalistrow']//input[@name='contact_id']
 		driver.findElement(By.xpath("//a[text()='Test Run']//parent::td[@class='datalistrow']//preceding-sibling::td[@class='datalistrow']//input[@name='contact_id']")).click();
 		//Let's say tomorrow I want to check the next box so just use the above link and just change Nav Smith to Test Run for the following contact box 
 		
@@ -72,7 +75,7 @@ public class DynamicXpath {
 
 		Step 1: Spy on Nav Smith, which is a link
 
-		//a[text()='Nav Smith']   (Child’s)
+		//a[text()='Nav Smith']   (Child’s)  then go parent..
 
 		//parent::td[@class='datalistrow']    (Parent’s)
 
@@ -85,7 +88,7 @@ public class DynamicXpath {
 		
 		Thread.sleep(3000);  //Write Static wait (Thread.sleep() ) we'll get error in red and once we put mouse on it, we'll get options for throws or try/catch block to handle it
 		
-		driver.quit();
+		//driver.quit();
 		
 	}
 

@@ -60,7 +60,7 @@ public class DynamicWebTableHandle {
 		//form[@id='vContactsForm']//tbody//tr[7]//td[2]
 		
 		
-		//Method #1:
+		//Method #1:  NO NEED TO DO METHOD ONE.. DO METHOD #2
 		
 //		String before_xpath = "form[@id='vContactsForm']//tbody//tr[ ";//form[@id='vContactsForm']//tbody//tr[     (6)To make it dynamic we don't include row# 6 and let the code fill in for appropriate row     ]//td[2] 
 //    
@@ -96,7 +96,7 @@ public class DynamicWebTableHandle {
 		driver.findElement(By.xpath("//input[@type='checkbox' and @name='contact_id' and @value='52600633' ]")).click(); //I DID THIS MYSELF, WHICH WAS LOT EASIER AS I WENT RIGHT FOR CHECK 
 		//BOX AND JUST ADDED MORE ATTRIBUTES TILL IT IS 1 OF 1
 		
-		//Next day I want to check box next to Test Run so just get it from the following check and REPLACE  'Nav Smith' with 'Test Run'.. 
+		//Next day I want to check box below Test Run so just get it from the following check and REPLACE  'Nav Smith' with 'Test Run'.. 
 		
 		driver.findElement(By.xpath("//a[contains(text(),'Test Run')]/parent::td//preceding-sibling::td//input[@name='contact_id']")).click();
 		
