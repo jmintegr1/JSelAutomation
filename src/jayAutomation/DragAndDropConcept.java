@@ -14,7 +14,7 @@ public class DragAndDropConcept {
 
 		WebDriver driver; 
 		
-//		System.setProperty("webdriver.chrome.driver", "/Users/jewellmehedi/Downloads/chromedriver");
+//		System.setProperty("webdriver.chrome.driver", "/Users/jewellmehedi/Downloads/chromedriver 2");
 //		driver = new ChromeDriver();	
 		
 		System.setProperty("webdriver.gecko.driver", "/Users/jewellmehedi/Downloads/geckodriver");
